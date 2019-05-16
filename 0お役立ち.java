@@ -2,14 +2,6 @@
 int 　 21億 2*10^9  2,000,000,000
 long 922京 9*10^18 9,000,000,000,000,000,000
 
-// 標準入力取得
-String str = "50 2 34343434 3";
-String[] strArray = str.split(" ");
-int[] array = new int[strArray.length];
-for (int i = 0; i < strArray.length; i++) {
-    array[i] = Integer.valueOf(strArray[i]);
-}
-
 // 2次元配列代入
 int[][] keyboard = new int[3][10];
 keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
