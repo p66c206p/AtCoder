@@ -14,7 +14,7 @@ System.out.println(String.join(" ",strArray));
 
 // contains
 list.contains("foo");
-Arrays.asList(array).contains(foo);
+Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
 map.containsKey("foo");
 
 // 配列→ArrayList
