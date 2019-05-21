@@ -28,6 +28,6 @@ public class Main {
             minCount = Math.min(minCount, count);
         }
         
-        System.out.println(minCount);
+        System.out.println(minCount); 
     }
 }
