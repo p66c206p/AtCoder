@@ -53,7 +53,7 @@ for (Entry<String, Integer> entry : shop.entrySet()) {
 // 配列
 Arrays.sort(foo);
 Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
-int[][] foo = new int[][] {{1, 2}, {5, 3}, {4, 2}};         // 2次元配列のソート（昇順）
+int[][] foo = new int[][]{{1, 2}, {5, 3}, {4, 2}};         // 2次元配列のソート（昇順）
 Arrays.sort(foo, (x, y) -> Integer.compare(x[0], y[0]));    // foo[x][]が第一、foo[][x]が第二の順でソート
 Arrays.sort(foo, (x, y) -> Integer.compare(y[0], x[0]));    // foo[][x]が第一、foo[x][]が第二の順でソート
 // ArrayList
