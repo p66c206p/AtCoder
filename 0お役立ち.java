@@ -54,8 +54,8 @@ for (Entry<String, Integer> entry : shop.entrySet()) {
 Arrays.sort(foo);
 Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
 Arrays.sort(foo, (x, y) -> Integer.compare(x[0], y[0]));    // foo[x][]が第一、foo[][x]が第二の順で昇順ソート（入れ替えても不能）
-↑(y[0], x[0])としても想定の動作が保証されないので、
-そうしたい場合は配列に格納する時点で逆に格納しておく必要がある
+    ↑(y[0], x[0])としても想定の動作が保証されないので、
+    そうしたい場合は配列に格納する時点で逆に格納しておく必要がある
 // ArrayList
 Collections.sort(foo);
 Collections.sort(foo, Collections.reverseOrder());
