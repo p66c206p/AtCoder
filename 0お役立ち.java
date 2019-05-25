@@ -71,4 +71,4 @@ map.forEach((k, v) -> System.out.println(k + " : " + v));
 List<Integer> foo = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> bar = foo.stream()    // あるいは、　IntStream.rangeClosed(1, 5)
     .filter(x -> x < 3)
-.collect(Collectors.toList());
+    .collect(Collectors.toList());
