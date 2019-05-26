@@ -11,6 +11,23 @@ keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
 
+// ソート 昇順、降順
+// 配列
+Arrays.sort(foo);
+Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
+Arrays.sort(foo, (x, y) -> Integer.compare(x[0], y[0]));    // foo[x][]が第一、foo[][x]が第二の順で昇順ソート（入れ替えても不能）
+    ↑(y[0], x[0])としても想定の動作が保証されないので、そうしたい場合は配列に逆に格納して、取り出すときも逆に取り出せば良い
+// ArrayList
+Collections.sort(foo);
+Collections.sort(foo, Collections.reverseOrder());
+// Stream API
+.sorted(Comparator.naturalOrder())
+.sorted(Comparator.reverseOrder())
+    
+// Stringの比較
+[-15, 0, 3, A, B, a, b, い, え]
+str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正の数
+
 // join
 System.out.println(String.join(" ",strArray));
 
@@ -48,19 +65,6 @@ import java.util.Map.*; // Entryを使うときは、paizaではこれを宣言�
 for (Entry<String, Integer> entry : shop.entrySet()) {
     System.out.println(entry.getKey() + " => " + entry.getValue());
 }
-
-// ソート 昇順、降順
-// 配列
-Arrays.sort(foo);
-Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
-Arrays.sort(foo, (x, y) -> Integer.compare(x[0], y[0]));    // foo[x][]が第一、foo[][x]が第二の順で昇順ソート（入れ替えても不能）
-    ↑(y[0], x[0])としても想定の動作が保証されないので、そうしたい場合は配列に逆に格納して、取り出すときも逆に取り出せば良い
-// ArrayList
-Collections.sort(foo);
-Collections.sort(foo, Collections.reverseOrder());
-// Stream API
-.sorted(Comparator.naturalOrder())
-.sorted(Comparator.reverseOrder())
 
 // Stream API
 import java.util.stream.Collectors; // Collectorsを使うときは、paizaではこれを宣言する
