@@ -15,8 +15,13 @@ System.out.println(Arrays.toString(array));
 // 配列
 Arrays.sort(foo);
 Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
-Arrays.sort(foo, (x, y) -> Integer.compare(x[0], y[0]));    // foo[x][]が第一、foo[][x]が第二の順で昇順ソート（入れ替えても不能）
-    ↑(y[0], x[0])としても想定の動作が保証されないので、そうしたい場合は配列に逆に格納して、取り出すときも逆に取り出せば良い
+// 2次元配列
+Arrays.sort(foo, (a, b) -> Integer.compare(a[0], b[0]));    // foo[x][]で
+Arrays.sort(foo, (a, b) -> Integer.compare(b[0], a[0]));    // foo[x][]で
+Arrays.sort(foo, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][x]で
+Arrays.sort(foo, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][x]で
+Arrays.sort(foo, (a, b) -> a[0].compareTo(b[0]));
+優先順位を持つ複数のソートが必要な場合、第三→第二→第一のように優先順位が低い順にソートするとOK
 // ArrayList
 Collections.sort(foo);
 Collections.sort(foo, Collections.reverseOrder());
