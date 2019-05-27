@@ -12,6 +12,8 @@ public class Main {
             ab[i][2] = String.valueOf(i + 1);
         }
         
+        // 複数ルールによるソートは、優先順位の低い方からソートする。
+        // ex. 第三→第二→第一
         Arrays.sort(ab, (a, b) -> Integer.compare(Integer.parseInt(b[1]), Integer.parseInt(a[1])));
         Arrays.sort(ab, (a, b) -> a[0].compareTo(b[0]));
         
