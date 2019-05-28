@@ -62,9 +62,7 @@ for (Entry<String, Integer> entry : shop.entrySet()) {
 
 // List型の配列
 List<String>[] logsOfMember = new ArrayList[n];
-for (int i = 0; i < n; i++) {
-    logsOfMember[i] = new ArrayList<String>();
-}
+Arrays.setAll(logsOfMember, i -> new ArrayList<String>());
 
 // 配列→ArrayList
 String[] str = {"a", "b", "c"};
