@@ -35,7 +35,7 @@ public class Main {
         Point(int name) {
             this.name = name;
             this.children = new ArrayList<Point>();
-        }
+        } 
         
         void addChild(Point p) {
             this.children.add(p);
