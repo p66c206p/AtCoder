@@ -30,6 +30,7 @@ public class Main {
     public static class Point {
         int name;
         List<Point> children;
+        int generationLength = -1;
         
         Point(int name) {
             this.name = name;
@@ -44,6 +45,11 @@ public class Main {
     public static int getLength(int depth, Point p) {
         int length = 0;
         
+        boolean alreadyKnown = p.generationLength != -1;
+        if (alreadyKnown) {
+            return depth + p.generationLength;
+        }
+        
         if (p.children.isEmpty()) {
             length = depth;
         } else {
@@ -52,6 +58,8 @@ public class Main {
                 length = Math.max(length, l);
             }
         }
+        
+        p.generationLength = length - depth;
         
         return length;
     }
