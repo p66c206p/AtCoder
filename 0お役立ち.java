@@ -41,17 +41,6 @@ list.contains("foo");
 Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
 map.containsKey("foo");
 
-// 配列→ArrayList
-String[] str = {"a", "b", "c"};
-List<String> strList = Arrays.asList(str);
-List<String> strList = Arrays.asList("a", "b", "c");
-
-// ArrayList→配列
-String[] strArray = strList.toArray(new String[strList.size()]);
-
-// 配列→Stream
-Stream<String> strStream = Arrays.stream(str);
-
 // ArrayList
 List<String> strList = new ArrayList<String>();
 strList.add("北海道");
@@ -70,6 +59,23 @@ import java.util.Map.*; // Entryを使うときは、paizaではこれを宣言�
 for (Entry<String, Integer> entry : shop.entrySet()) {
     System.out.println(entry.getKey() + " => " + entry.getValue());
 }
+
+// List型の配列
+List<String>[] logsOfMember = new ArrayList[n];
+for (int i = 0; i < n; i++) {
+    logsOfMember[i] = new ArrayList<String>();
+}
+
+// 配列→ArrayList
+String[] str = {"a", "b", "c"};
+List<String> strList = Arrays.asList(str);
+List<String> strList = Arrays.asList("a", "b", "c");
+
+// ArrayList→配列
+String[] strArray = strList.toArray(new String[strList.size()]);
+
+// 配列→Stream
+Stream<String> strStream = Arrays.stream(str);
 
 // Stream API
 import java.util.stream.Collectors; // Collectorsを使うときは、paizaではこれを宣言する
