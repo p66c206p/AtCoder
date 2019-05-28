@@ -37,7 +37,7 @@ public class Main {
                 for (int index : switches) {
                     int num = Integer.valueOf(String.valueOf(binaryNumber.charAt(index - 1)));
                     sum += num;
-                }
+                } 
                 
                 if (sum % 2 != guuki[j]) {
                     break;
