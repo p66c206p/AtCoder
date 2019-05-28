@@ -19,9 +19,8 @@ public class Main {
         }
         
         int[][] dp = new int[x + 2][y + 2];
-        for (int[] d : dp) {
-            Arrays.fill(d, 1);
-        }
+        dp[1][1] = 1;
+        
         for (int i = 1; i <= x; i++) {
             for (int j = 1; j <= y; j++) {
                 if (i == 1 && j == 1) continue;
