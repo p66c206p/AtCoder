@@ -52,7 +52,7 @@ public class Main {
     public static class Point {
         int name;
         Map<Point, Integer> friends;
-        
+         
         Point(int name) {
             this.name = name;
             this.friends = new HashMap<Point, Integer>();
