@@ -32,10 +32,10 @@ public class Main {
             int rx = uf.root(x);
             int ry = uf.root(y);
             answer[i - 1] = answer[i] - size[rx] * size[ry];
-            long sizex = size[rx];
-            long sizey = size[ry];
-            size[rx] += sizey;
-            size[ry] += sizex;
+            long sizerx = size[rx];
+            long sizery = size[ry];
+            size[rx] += sizery;
+            size[ry] += sizerx;
             uf.unite(x, y);
         }
         
