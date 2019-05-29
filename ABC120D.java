@@ -32,8 +32,8 @@ public class Main {
             int rx = uf.root(x);
             int ry = uf.root(y);
             answer[i - 1] = answer[i] - size[rx] * size[ry];
-            int sizex = size[rx];
-            int sizey = size[ry];
+            long sizex = size[rx];
+            long sizey = size[ry];
             size[rx] += sizey;
             size[ry] += sizex;
             uf.unite(x, y);
