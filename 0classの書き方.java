@@ -4,12 +4,19 @@ public class Main {
     public static void main(String[] args) {
     }
     
-    // ここに書くなら(public) static class
+    // ここだと(public) static class ※要static
     public static class Hoge {
+    }
     
+    // 複数個置ける
+    static class Hoge2 {
     }
 }
 
-// ここに書くならclass ※public, static不要
+// ここだとclass ※public, static不要
 class Hoge {
+}
+
+// 複数個置ける
+class Hoge2 {
 }
