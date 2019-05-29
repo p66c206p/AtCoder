@@ -47,5 +47,5 @@ public class Main {
             int length2 = entry.getValue();
             dfs(friend, length + length2);
         }
-    }
+    } 
 }
