@@ -36,7 +36,7 @@ public class Main {
         boolean alreadyKnown = colors[p] != -1;
         if (alreadyKnown) return;
         
-        if (length % 2 == 0) {
+        if (length % 2 == 0) { 
             colors[p] = 0;
         } else {
             colors[p] = 1;
