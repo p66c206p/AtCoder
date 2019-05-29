@@ -1,4 +1,4 @@
-public static class UnionFind {
+class UnionFind {
     int[] par;  // 自身の親
     int[] size; // 自身の属するグループの要素数
     int connectedComponent;
