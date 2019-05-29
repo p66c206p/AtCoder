@@ -62,4 +62,4 @@ public class Main {
             this.friends.put(p, length);
         }
     }
-}
+} 
