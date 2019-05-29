@@ -16,8 +16,6 @@ public class Main {
             xy[i][1] = y;
         }
         
-        long[] size = new long[n];
-        Arrays.fill(size, 1);
         long[] answer = new long[m];
         answer[m - 1] = (long)n * (n - 1) / 2;
         
@@ -31,11 +29,7 @@ public class Main {
             
             int rx = uf.root(x);
             int ry = uf.root(y);
-            answer[i - 1] = answer[i] - size[rx] * size[ry];
-            long sizerx = size[rx];
-            long sizery = size[ry];
-            size[rx] += sizery;
-            size[ry] += sizerx;
+            answer[i - 1] = answer[i] - uf.size[rx] * uf.size[ry];
             uf.unite(x, y);
         }
         
@@ -45,11 +39,14 @@ public class Main {
     }
     
     public static class UnionFind {
-        int[] par;
+        int[] par;  // 自身の親
+        int[] size; // 自身の属するグループの要素数
         int connectedComponent;
     
         UnionFind(int n) {
             par = new int[n];
+            size = new int[n];
+            Arrays.fill(size, 1);
             connectedComponent = n;
             for (int i = 0; i < n; i++) {
                 par[i] = i;
@@ -70,6 +67,9 @@ public class Main {
             if (rx != ry) {
                 par[ry] = rx;
                 connectedComponent--;
+                int resize = size[rx] + size[ry];
+                size[rx] = resize;
+                size[ry] = resize;
             }
         }
     
