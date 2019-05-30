@@ -11,6 +11,9 @@ keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
 
+// ListとSetの使い分け
+要素の重複ある(List)、ない(Set)
+
 // ソート 昇順、降順
 // 配列
 Arrays.sort(foo);
@@ -22,9 +25,11 @@ Arrays.sort(foo, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][x]で
 Arrays.sort(foo, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][x]で
 Arrays.sort(foo, (a, b) -> a[0].compareTo(b[0]));   // String向け
  - 優先順位を持つ複数のソートが必要な場合、第三→第二→第一のように優先順位が低い順にソートするとOK
-// ArrayList
-Collections.sort(foo);
-Collections.sort(foo, Collections.reverseOrder());
+// List
+list.sort(Comparator.naturalOrder());
+list.sort(Comparator.reverseOrder());
+// Set 
+SetはソートメソッドがないのでTreeSet（昇順）を用いる。
 // Stream API
 .sorted(Comparator.naturalOrder())
 .sorted(Comparator.reverseOrder())
@@ -37,8 +42,10 @@ str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正�
 System.out.println(String.join(" ",strArray));
 
 // contains
-list.contains("foo");
+ListよりSetの方がcontainsは速い。
 Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
+list.contains("foo");
+set.contains("foo");
 map.containsKey("foo");
 
 // ArrayList
