@@ -29,7 +29,7 @@ Arrays.sort(foo, (a, b) -> a[0].compareTo(b[0]));   // String向け
 list.sort(Comparator.naturalOrder());
 list.sort(Comparator.reverseOrder());
 // Set 
-SetはソートメソッドがないのでTreeSet（昇順）を用いる。
+Setは.sortがないのでTreeSet（昇順）を用いる。
 // Stream API
 .sorted(Comparator.naturalOrder())
 .sorted(Comparator.reverseOrder())
