@@ -12,7 +12,7 @@ keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 System.out.println(Arrays.toString(array));
 
 // ListとSetの使い分け
-要素の重複ある(List)、ない(Set)
+要素の重複: ある(List)、ない(Set)
 
 // ソート 昇順、降順
 // 配列
