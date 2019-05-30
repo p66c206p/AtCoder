@@ -11,8 +11,10 @@ keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
 
-// ListとSetの使い分け
+// ListとSetの使い分け（上の方が優先順位が高い）
 要素の重複: ある(List)、ない(Set)
+get(i)を使う: List
+containsを使う: Setが圧倒的に速い
 
 // ソート 昇順、降順
 // 配列
@@ -42,13 +44,13 @@ str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正�
 System.out.println(String.join(" ",strArray));
 
 // contains
-ListよりSetの方がcontainsは速い。
+ListよりSetの方がcontainsは圧倒的に速い。
 Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
 list.contains("foo");
 set.contains("foo");
 map.containsKey("foo");
 
-// ArrayList
+// List
 List<String> strList = new ArrayList<String>();
 strList.add("北海道");
 strList.set(0, "東京");
@@ -72,8 +74,7 @@ List<String>[] logsOfMember = new ArrayList[n];
 Arrays.setAll(logsOfMember, new ArrayList<String>());   // fillは不可
 
 // 配列→ArrayList
-String[] str = {"a", "b", "c"};
-List<String> strList = Arrays.asList(str);
+List<String> strList = Arrays.asList(array);
 List<String> strList = Arrays.asList("a", "b", "c");
 
 // ArrayList→配列
