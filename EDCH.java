@@ -18,6 +18,7 @@ public class Main {
             }
         }
         
+        // dp[i][j] = 条件を満たす、(i, j)マスに行く組み合わせの数
         int[][] dp = new int[x + 2][y + 2];
         dp[1][1] = 1;
         
