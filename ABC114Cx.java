@@ -27,4 +27,4 @@ public class Main {
         if (str.contains("7") && str.contains("5") && str.contains("3")) return true;
         return false;
     }
-}
+} 
