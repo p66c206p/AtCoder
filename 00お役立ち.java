@@ -57,6 +57,11 @@ strList.set(0, "東京");
 strList.get(0);
 strList.remove(0);
 
+// Set
+Stt<String> strSet = new HashSet<String>();
+strSet.add("北海道");
+strSet.remove("北海道");
+
 // Map
 Map<String, Integer> shop = new HashMap<String, Integer>();
 Map<String, Integer> shop = new LinkedHashMap<String, Integer>();   // 順番を保持できる
