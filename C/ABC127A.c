@@ -12,4 +12,4 @@ int main(void){
         printf("%d", price / 2);
     }
     return 0; 
-}
+} 
