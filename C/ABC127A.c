@@ -11,5 +11,5 @@ int main(void){
     } else {
         printf("%d", price / 2);
     }
-    return 0;
+    return 0; 
 }
