@@ -4,6 +4,6 @@ int main(void){
     int a, p;
     scanf("%d%d", &a,&p);
     int answer = (a * 3 + p) / 2;
-    printf("%d", answer);
+    printf("%d\n", answer);
     
 }
