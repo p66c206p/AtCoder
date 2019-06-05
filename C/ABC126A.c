@@ -12,4 +12,5 @@ int main(void){
     s[index - 1] += 32;
     
     printf("%s\n", s);
+    
 }
