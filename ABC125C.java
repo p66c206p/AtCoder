@@ -35,4 +35,4 @@ public class Main {
         
         return gcd(b, a % b);
     }
-}
+} 
