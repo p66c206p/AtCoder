@@ -43,7 +43,7 @@ str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正�
 // join
 System.out.println(String.join(" ",strArray));
 
-// Stringをcharで配列に入れる
+// Stringを1文字ずつ配列に入れる
 char c[] = str.toCharArray();
 
 // contains
