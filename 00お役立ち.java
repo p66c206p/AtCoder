@@ -54,7 +54,7 @@ map.containsKey("foo");
 List<String> strList = new ArrayList<String>();
 strList.add("北海道");
 strList.set(0, "東京");
-strList.get(0);
+strList.get(0); //get(index)なので、List<Integer>は使えない
 strList.remove(0);
 
 // Set
@@ -67,9 +67,9 @@ Map<String, Integer> shop = new HashMap<String, Integer>();
 Map<String, Integer> shop = new LinkedHashMap<String, Integer>();   // 順番を保持できる
 shop.put("北海道", 100);   // addではなくput
 shop.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
-shop.get("北海道");
+shop.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
 shop.remove("北海道");
-import java.util.Map.*; // Entryを使うときは、paizaではこれを宣言する
+import java.util.Map.*;   // Entryを使うときは、paizaではこれを宣言する
 for (Entry<String, Integer> entry : shop.entrySet()) {
     System.out.println(entry.getKey() + " => " + entry.getValue());
 }
