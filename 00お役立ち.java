@@ -43,6 +43,9 @@ str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正�
 // join
 System.out.println(String.join(" ",strArray));
 
+// Stringをcharで配列に入れる
+char c[] = str.toCharArray();
+
 // contains
 ListよりSetの方がcontainsは圧倒的に速い。
 Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
