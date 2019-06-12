@@ -48,7 +48,7 @@ char c[] = str.toCharArray();
 
 // contains
 ListよりSetの方がcontainsは圧倒的に速い。
-Arrays.asList(array).contains(foo); // 数値が含まれているか調べるにはラッパークラスである必要がある
+Arrays.asList(array).contains(foo); // fooがラッパークラスである必要がある
 list.contains("foo");
 set.contains("foo");
 map.containsKey("foo");
