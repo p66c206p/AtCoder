@@ -21,10 +21,10 @@ containsを使う: Setが圧倒的に速い
 Arrays.sort(foo);
 Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
 // 2次元配列
-Arrays.sort(foo, (a, b) -> Integer.compare(a[0], b[0]));    // foo[x][]で
-Arrays.sort(foo, (a, b) -> Integer.compare(b[0], a[0]));    // foo[x][]で
-Arrays.sort(foo, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][x]で
-Arrays.sort(foo, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][x]で
+Arrays.sort(foo, (a, b) -> Integer.compare(a[0], b[0]));    // foo[][0]で
+Arrays.sort(foo, (a, b) -> Integer.compare(b[0], a[0]));    // foo[][0]で
+Arrays.sort(foo, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][1]で
+Arrays.sort(foo, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][1]で
 Arrays.sort(foo, (a, b) -> a[0].compareTo(b[0]));   // String向け
  - 優先順位を持つ複数のソートが必要な場合、第三→第二→第一のように優先順位が低い順にソートするとOK
 // List
