@@ -4,18 +4,6 @@ long 922京 9*10^18 9,000,000,000,000,000,000
 double 有効桁数16桁
 int 5 / int 3 = 1(a余りbならaが答え)(切り捨て)
 
-// 2次元配列代入
-int[][] keyboard = new int[3][10];
-keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
-
-// 配列を並べて表示
-System.out.println(Arrays.toString(array));
-
-// ListとSetの使い分け（上の方が優先順位が高い）
-要素の重複: ある(List)、ない(Set)
-get(i)を使う: List
-containsを使う: Setが圧倒的に速い
-
 // ソート 昇順、降順
 // 配列
 Arrays.sort(foo);
@@ -35,6 +23,21 @@ Setは.sortがないのでTreeSet（昇順）を用いる。
 // Stream API
 .sorted(Comparator.naturalOrder())
 .sorted(Comparator.reverseOrder())
+ 
+// Deepコピー、値渡しのコピー
+Boolean[] visited = previousVisited.clone();
+
+// 2次元配列代入
+int[][] keyboard = new int[3][10];
+keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
+
+// 配列を並べて表示
+System.out.println(Arrays.toString(array));
+
+// ListとSetの使い分け（上の方が優先順位が高い）
+要素の重複: ある(List)、ない(Set)
+get(i)を使う: List
+containsを使う: Setが圧倒的に速い
     
 // Stringの比較
 [-15, 0, 3, A, B, a, b, い, え]
