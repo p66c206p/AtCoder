@@ -19,6 +19,7 @@ public class Main {
                 count += n - index;
             }
         }
+        
         System.out.println(count);
     }
     
