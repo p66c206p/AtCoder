@@ -12,45 +12,43 @@ public class Main {
             cumsum[i] = cumsum[i - 1] + sc.nextLong();
         }
         
-        long count = solve(cumsum, k);
-        
+        long count = 0;
+        for (int i = 0; i < n; i++) {
+            int index = binarySearch(cumsum, k, i);
+            if (index != -1) {
+                count += n - index;
+            }
+        }
         System.out.println(count);
     }
     
-    public static long solve(long[] array, long k) {
-        long count = 0;
-        int n = array.length - 1;
-        long target = k;
+    public static int binarySearch(long[] array, long target, int i) {
+        int index = -1;
+        int left = i;
+        int right = array.length - 1;
         
-        for (int i = 0; i < n; i++) {
-            int left = i;
-            int right = n;
-            
-            while (left < right) {
-                int center = (left + right) / 2;
-                
-                // System.out.println(left + " " + center + " " + right);
-                
-                if (array[center] - array[i] >= target) {
-                    if (center - 1 == -1) break;
-                    if (array[center - 1] - array[i] < target) {
-                        count += n - (center - 1);
-                        break;
-                    } else {
-                        right = center;
-                    }
+        while (left < right) {
+            int center = (left + right) / 2;
+            // System.out.println(left + " " + center + " " + right);
+            if (array[center] - array[i] >= target) {
+                if (center - 1 == -1) break;
+                if (array[center - 1] - array[i] < target) {
+                    index = center - 1;
+                    break;
                 } else {
-                    if (center + 1 == n + 1) break;
-                    if (array[center + 1] - array[i] >= target) {
-                        count += n - center;
-                        break;
-                    } else {
-                        left = center + 1;
-                    }
+                    right = center;
                 }
-            }            
+            } else {
+                if (center + 1 == array.length) break;
+                if (array[center + 1] - array[i] >= target) {
+                    index = center;
+                    break;
+                } else {
+                    left = center + 1;
+                }
+            }
         }
         
-        return count;
+        return index;
     }
 }
