@@ -3,8 +3,8 @@ public static long shakutori(int[] array, long k) {
     
     long count = 0;
     int n = array.length;
-    long sum = 0;
     int right = 0;
+    long sum = 0;
     
     for (int left = 0; left < n; left++) {
         // actionしても条件を満たすならactionして1つ右へ
