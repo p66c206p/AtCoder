@@ -1,5 +1,5 @@
 public static long shakutori(int[] array, long k) {
-    // 条件を満たす部分列の数を返す
+    // 条件を満たす区間の数を返す
     
     long count = 0;
     int n = array.length;
