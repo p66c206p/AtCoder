@@ -40,7 +40,7 @@ get(i)を使う: List
 containsを使う: Setが圧倒的に速い
     
 // Stringの比較
-[-15, 0, 3, A, B, a, b, い, え]
+[-11, -111, 0, 11, 111, 2, A, B, a, b, い, え]
 str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正の数
 
 // join
