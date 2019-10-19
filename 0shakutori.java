@@ -1,48 +1,17 @@
-public static long shakutori(int[] array, long k) {
-    // 条件を満たす区間の数を返す
-    
-    long count = 0;
-    int n = array.length;
-    int right = 0;
-    long sum = 0;
-    
-    for (int left = 0; left < n; left++) {
-        // actionしても条件を満たすならactionして1つ右へ
-        while (right < n && sum + array[right] < k) {
-            sum += array[right];
-            right++;
-        }
-        
-        // 条件を満たすとこまでを数え上げる
-        count += right - left;
-        
-        if (right == left) {
-            right++;
-        } else {
-            sum -= array[left];
-        }
-    }
-    
-    return count;
-}
-
-public static long shakutori(int[] array, long k) {
-    // 条件を満たす区間の数を返す
+public static int shakutori(int[] array, int k) {
+    // 条件を満たす区間の個数を返す
     // この場合の条件: 任意の区間の和がk未満になる
     
-    long count = 0;
+    int count = 0;
     int n = array.length;
     int right = 0;
     
-    long sum = 0;
-    boolean canGoNext = right < n && sum + array[right] < k;
+    int sum = 0;
     
     for (int left = 0; left < n; left++) {
-        while (canGoNext) {
+        while (right < n && sum + array[right] < k) {   // while (canGoNext)
             sum += array[right];
             right++;
-            
-            canGoNext = right < n && sum + array[right] < k;
         }
         
         int countGot = right - left;
@@ -55,4 +24,32 @@ public static long shakutori(int[] array, long k) {
     }
     
     return count;
+}
+
+public static int shakutori(int[] array, int k) {
+    // 条件を満たす区間のうち最大の長さを返す
+    // この場合の条件: 区間の積がk以下になる
+
+    long maxLength = 0;
+    int n = array.length;
+    int right = 0;
+
+    long seki = 1;
+
+    for (int left = 0; left < n; left++) {
+        while (right < n && seki * array[right] <= k) {     // while (canGoNext)
+            seki *= array[right];
+            right++;
+        }
+
+        int countGot = right - left;
+        if (countGot > 0) {
+            maxLength = Math.max(maxLength, countGot);
+            seki /= array[left];
+        } else {
+            right = left + 1;
+        }
+    }
+
+    return maxLength;
 }
