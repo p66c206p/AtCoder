@@ -25,7 +25,7 @@ public static long shakutori(int[] array, long k) {
     
     return count;
 }
- 
+
 public static long shakutori(int[] array, long k) {
     // 条件を満たす区間の数を返す
     // この場合の条件: 任意の区間の和がk未満になる
