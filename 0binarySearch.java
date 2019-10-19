@@ -1,20 +1,37 @@
-public static int binarySearch(int[] array, int target) {
-    // targetと一致するindexを返す、ない場合は-1を返す
-    int index = -1;
+public static int lowerBound(int[] array, int target) {
+    // 初めてのtarget以上のindexを返す
+    // {1, 3, 3, 7} target: 3 -> 1
+    
     int left = 0;
     int right = array.length;
-
+    
     while (left < right) {
         int center = (left + right) / 2;
-        if (array[center] == target) {
-            index = center;
-            break;
-        } else if (array[center] > target) {
-            right = center;
-        } else if (array[center] < target) {
+        if (array[center] < target) {
             left = center + 1;
+        } else {
+            right = center;
         }
     }
+    
+    return left;
+}
 
-    return index;
+public static int upperBound(int[] array, int target) {
+    // 初めてのtarget超過のindexを返す
+    // {1, 3, 3, 7} target: 3 -> 3
+    
+    int left = 0;
+    int right = array.length;
+    
+    while (left < right) {
+        int center = (left + right) / 2;
+        if (array[center] <= target) {
+            left = center + 1;
+        } else {
+            right = center;
+        }
+    }
+    
+    return left;
 }
