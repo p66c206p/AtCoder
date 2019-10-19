@@ -46,7 +46,7 @@ public static long shakutori(int[] array, long k) {
         }
         
         int countGot = right - left;
-        if (countGot) {
+        if (countGot > 0) {
             count += countGot;
             sum -= array[left];
         } else {
