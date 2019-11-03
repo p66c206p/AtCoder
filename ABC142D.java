@@ -20,7 +20,6 @@ public class Main {
     
     public static long prime(long n) {
         // nの素因数の個数(1を含む)
-        
         int count = 1;
         
         long d = n;
