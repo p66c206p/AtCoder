@@ -7,7 +7,7 @@ public class Main {
         long a = sc.nextLong();
         long b = sc.nextLong();
         
-        long gcd = 6;
+        long gcd = gcd(a, b);
         
         System.out.println(prime(gcd));
     }
