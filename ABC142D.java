@@ -18,25 +18,25 @@ public class Main {
         return gcd(b, a % b);
     }
     
-	public static long prime(long n) {
-	    // nの素因数の個数(1を含む)
-	    
-		int count = 1;
-		
-		long d = n;
-		for (int i = 2; i <= Math.sqrt(n); i++) {
-			if (d % i == 0) {
-				count++;
-				while (d % i == 0) {
-					d = d / i;
-				}
-			}
-		}
-		
-		if (d != 1) {
-			count++;
-		}
-		
-		return count;
-	}
+    public static long prime(long n) {
+        // nの素因数の個数(1を含む)
+        
+        int count = 1;
+        
+        long d = n;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (d % i == 0) {
+                count++;
+                while (d % i == 0) {
+                    d = d / i;
+                }
+            }
+        }
+        
+        if (d != 1) {
+            count++;
+        }
+        
+        return count;
+    }
 }
