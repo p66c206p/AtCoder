@@ -38,6 +38,10 @@ System.out.println(Arrays.toString(array));
 要素の重複: ある(List)、ない(Set)
 get(i)を使う: List
 containsを使う: Setが圧倒的に速い
+
+// 配列とリストの使い分け
+挿入削除が速い → リスト
+特定のindexのアクセスが速い → 配列
     
 // Stringの比較
 [-11, -111, 0, 11, 111, 2, A, B, a, b, い, え]
