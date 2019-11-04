@@ -42,6 +42,7 @@ containsを使う: Setが圧倒的に速い
 // 配列とリストの使い分け
 挿入削除が速い → リスト
 特定のindexのアクセスが速い → 配列
+出し入れの操作がメイン → キュー、スタック
     
 // Stringの比較
 [-11, -111, 0, 11, 111, 2, A, B, a, b, い, え]
@@ -68,7 +69,7 @@ strList.get(0); //get(index)なので、List<Integer>は使えない
 strList.remove(0);
 
 // Set
-Stt<String> strSet = new HashSet<String>();
+Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
 
@@ -83,6 +84,12 @@ import java.util.Map.*;   // Entryを使うときは、paizaではこれを宣�
 for (Entry<String, Integer> entry : shop.entrySet()) {
     System.out.println(entry.getKey() + " => " + entry.getValue());
 }
+
+// PriorityQueue
+PriorityQueue<Integer> queue = new PriorityQueue<>(); // データを昇順で行列を作る
+PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder()); // 降順で
+queue.add(3);
+num = queue.poll();
 
 // List型の配列
 List<String>[] logsOfMember = new ArrayList[n];
