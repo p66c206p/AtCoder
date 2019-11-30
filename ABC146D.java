@@ -18,7 +18,7 @@ public class Main {
             int q = sc.nextInt() - 1;
             index[i] = q;   // 出力順を記憶する
             
-            point[p].child.add(q);
+            point[p].children.add(q);
         }
         
         // 自分の子を若い色から塗る
@@ -29,12 +29,12 @@ public class Main {
                 myColor = point[i].color;
             }
             
-            for (Integer children : point[i].child) {
+            for (Integer child : point[i].children) {
                 if (nowColor == myColor) {
                     nowColor++;
                 }
                 
-                point[children].color = nowColor;
+                point[child].color = nowColor;
                 nowColor++;
             }
         }
@@ -55,10 +55,10 @@ public class Main {
     
     public static class Point {
         int color;
-        List<Integer> child;
+        List<Integer> children;
         
         Point() {
-            this.child = new ArrayList<Integer>();
+            this.children = new ArrayList<Integer>();
         }
     }
 }
