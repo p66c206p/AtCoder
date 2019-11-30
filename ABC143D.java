@@ -29,7 +29,7 @@ public class Main {
         
         int left = 0;
         int right = array.length;
-        
+         
         while (left < right) {
             int center = (left + right) / 2;
             if (array[center] < target) {
