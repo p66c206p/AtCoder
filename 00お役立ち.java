@@ -67,6 +67,11 @@ strList.add("北海道");
 strList.set(0, "東京");
 strList.get(0); //get(index)なので、List<Integer>は使えない
 strList.remove(0);
+// Listの配列
+List<Integer>[] sub = new List[n];
+for (int i = 0; i < n; i++) {
+    sub[i] = new ArrayList<Integer>();
+}
 
 // Set
 Set<String> strSet = new HashSet<String>();
