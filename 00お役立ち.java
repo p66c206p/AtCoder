@@ -90,11 +90,17 @@ for (Entry<String, Integer> entry : shop.entrySet()) {
     System.out.println(entry.getKey() + " => " + entry.getValue());
 }
 
-// PriorityQueue
-PriorityQueue<Integer> queue = new PriorityQueue<>(); // データを昇順で行列を作る
-PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder()); // 降順で
-queue.add(3);
-num = queue.poll();
+// Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
+Queue<int[]> que = new ArrayDeque<int[]>();
+que.add(new int[]{x, y});
+int[] cur = que.poll();
+while (!que.isEmpty()) {}
+
+// PriorityQueue(優先順位を持つキュー)
+PriorityQueue<Integer> que = new PriorityQueue<>(); // データを昇順で行列を作る
+PriorityQueue<Integer> que = new PriorityQueue<>(Collections.reverseOrder()); // 降順で
+que.add(3);
+num = que.poll();
 
 // List型の配列
 List<String>[] logsOfMember = new ArrayList[n];
