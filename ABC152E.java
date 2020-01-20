@@ -34,7 +34,7 @@ public class Main {
         long lcm = 1;
         for (Entry<Integer, Integer> entry : factorMap.entrySet()) {
             int key = entry.getKey();
-            int val =  entry.getValue();
+            int val = entry.getValue();
             
             while (val-- > 0) {
                 lcm = (lcm * key) % MOD;
