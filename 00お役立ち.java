@@ -93,7 +93,8 @@ for (Entry<String, Integer> entry : shop.entrySet()) {
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<int[]> que = new ArrayDeque<int[]>();
 que.add(new int[]{x, y});
-int[] cur = que.poll();
+int[] cur = que.poll(); // 出す
+int[] cur = que.peek(); // 見るだけ
 while (!que.isEmpty()) {}
 
 // PriorityQueue(優先順位を持つキュー)
