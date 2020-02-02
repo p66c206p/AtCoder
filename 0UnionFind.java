@@ -40,4 +40,4 @@ class UnionFind {
         int ry = root(y);
         return rx == ry;
     }
-} 
+}
