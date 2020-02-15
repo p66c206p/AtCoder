@@ -8,7 +8,7 @@ public class Main {
         int w = sc.nextInt();
         
         // dist[i][j] = 点i→jの直接距離
-        // iとjを入れ替えても距離が同じとは限らない
+        // i→jとj→iの距離が同じとは限らない
         int[][] dist = new int[10][10];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
