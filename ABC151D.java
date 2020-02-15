@@ -19,7 +19,7 @@ public class Main {
             }
         }
         
-        int max = 0;
+        int max = 0; 
         // スタート地点の全探索(BFS)
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
