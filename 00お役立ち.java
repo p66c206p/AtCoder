@@ -31,6 +31,10 @@ Boolean[] visited = previousVisited.clone();
 int[][] keyboard = new int[3][10];
 keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 
+// Stringを1文字ずつ配列に入れる
+char c[] = str.toCharArray();
+int k = c[i] - '0';
+
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
 
@@ -50,9 +54,6 @@ str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正�
 
 // join
 System.out.println(String.join(" ",strArray));
-
-// Stringを1文字ずつ配列に入れる
-char c[] = str.toCharArray();
 
 // contains
 ListよりSetの方がcontainsは圧倒的に速い。
