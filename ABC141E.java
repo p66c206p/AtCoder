@@ -22,7 +22,7 @@ public class Main {
             }
         }
         
-        int max = 0;
+        int max = 0; 
         for (int j = n - 1; j >= 0; j--) {
             for (int i = j; i >= 0; i--) {
                 // 文字列の重なりを許さないので、
