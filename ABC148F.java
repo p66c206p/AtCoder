@@ -22,7 +22,7 @@ public class Main {
             int s = sc.nextInt() - 1;
             int t = sc.nextInt() - 1;
             to[s].add(t);
-            to[t].add(s);
+            to[t].add(s); 
         }
         
         // u/vから各点までの距離を計算
