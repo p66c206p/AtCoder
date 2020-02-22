@@ -1,14 +1,19 @@
 import java.util.*;
 
 public class Main {
-    static int MAX = 510000;
+    static int MAX = 10010017;  // (1 ≦ k ≦ n ≦ 10^7 程度)
     static int MOD = 1000000007;
     static long[] fac;
     static long[] finv;
     static long[] inv;
     
     public static void main(String[] args) throws Exception {
-
+        // Your code here!
+        Scanner sc = new Scanner(System.in);
+        
+        COMinit();
+        
+        System.out.println(nCkMOD(10000000, 500000));
     }
     
     // テーブルを作る前処理
@@ -26,7 +31,8 @@ public class Main {
             finv[i] = finv[i - 1] * inv[i] % MOD;
         }
     }
-    // 二項係数計算
+    
+    // 二項係数計算(1 ≦ k ≦ n ≦ 10^7 程度)
     public static long nCkMOD(int n, int k){
         if (n < k) return 0;
         if (n < 0 || k < 0) return 0;
