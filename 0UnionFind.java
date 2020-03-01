@@ -1,6 +1,7 @@
 class UnionFind {
     int[] par;  // 自身の親
-    int[] size; // ※(自身の属するグループの要素数はsize[uf.root(i)])
+    int[] size; // ※(自身の属するグループの要素数はsize[uf.root(i)]。)
+                // (※[i]全てに対して↑を更新するのは時間がかかるので)
     int connectedComponent;
 
     UnionFind(int n) {
@@ -18,7 +19,7 @@ class UnionFind {
         if (par[x] == x) return x;
         return par[x] = root(par[x]);
         // 1-2-4の場合、4の親=2を4の根=1に繋ぎ変えた上で親を返す
-        // ↑根まで辿る深さを減らす為
+        // ↑根まで辿る深さ(計算量)を減らす為
         // return a = b;とは、aにbを代入し、aを返すという意味
     }
 
