@@ -1,6 +1,6 @@
 class UnionFind {
     int[] par;  // 自身の親
-    int[] size; // 自身の属するグループの要素数
+    int[] size; // ※(自身の属するグループの要素数はsize[uf.root(i)])
     int connectedComponent;
 
     UnionFind(int n) {
