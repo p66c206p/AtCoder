@@ -34,7 +34,8 @@ class UnionFind {
             connectedComponent--;
         }
     }
-
+    
+    // 同グループか否か
     boolean same(int x, int y) {
         int rx = root(x);
         int ry = root(y);
