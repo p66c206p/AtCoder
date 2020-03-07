@@ -22,7 +22,7 @@ public class Main {
             }
         }
         
-        // ans: 席の数
+        // ans: 席の数 
         System.out.println(list.size());
     }
     
