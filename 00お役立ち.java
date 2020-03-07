@@ -1,3 +1,6 @@
+// Javaで競技プログラミングをするときによく使う標準ライブラリ
+http://bit.ly/2Tu7y0Q
+
 // データ型の範囲
 int 　 21億 2*10^9  2,000,000,000
 long 922京 9*10^18 9,000,000,000,000,000,000
@@ -78,6 +81,7 @@ for (int i = 0; i < n; i++) {
 Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
+// TreeSet(二分探索ができる
 
 // Map
 Map<String, Integer> shop = new HashMap<String, Integer>();
