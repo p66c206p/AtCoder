@@ -37,8 +37,8 @@ keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 
 // Stringを1文字ずつ配列に入れる
 char c[] = str.toCharArray();
-int k = c[i] - '0';
-char c = (char)(i + '0');
+int k = c[i] - 'a';
+char c = (char)(i + 'a');
 
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
@@ -86,18 +86,18 @@ strSet.remove("北海道");
 // TreeSet(二分探索ができる
 
 // Map
-Map<String, Integer> shop = new HashMap<String, Integer>();
-Map<String, Integer> shop = new LinkedHashMap<String, Integer>();   // 順番を保持できる
-shop.put("北海道", 100);   // addではなくput
-shop.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
-shop.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
-shop.remove("北海道");
-import java.util.Map.*;   // Entryを使うときは、paizaではこれを宣言する
-for (Entry<String, Integer> entry : shop.entrySet()) {
-    System.out.println(entry.getKey() + " => " + entry.getValue());
+Map<String, Integer> map = new HashMap<String, Integer>();
+Map<String, Integer> map = new LinkedHashMap<String, Integer>();   // 順番を保持できる
+map.put("北海道", 100);   // addではなくput
+map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
+map.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
+map.remove("北海道");
+for (String key : map.keySet()) {
+    int val = map.get(key);
 }
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
+Queue<Integer> que = new ArrayDeque<Integer>();
 Queue<int[]> que = new ArrayDeque<int[]>();
 que.add(new int[]{x, y});
 int[] cur = que.poll(); // 出す
