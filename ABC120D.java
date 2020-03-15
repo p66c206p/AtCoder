@@ -41,7 +41,8 @@ public class Main {
 
 class UnionFind {
     int[] par;  // 自身の親
-    int[] size; // 自身の属するグループの要素数
+    int[] size; // ※(自身の属するグループの要素数はsize[uf.root(i)]。)
+                // (※[i]全てに対して↑を更新するのは時間がかかるので)
     int connectedComponent;
 
     UnionFind(int n) {
@@ -73,7 +74,8 @@ class UnionFind {
             size[ry] = resize;
         }
     }
-
+    
+    // 同グループか否か
     boolean same(int x, int y) {
         int rx = root(x);
         int ry = root(y);
