@@ -23,10 +23,10 @@ public class Main {
             int type = sc.nextInt();
             
             if (type == 1) {
-                // chrの出現位置を消し、chr2の出現位置を追加、c[]を書き換え
                 // abcb => azcb
                 //  ^       ^
                 
+                // chrの出現位置を消し、chr2の出現位置を追加、c[]を書き換え
                 int index = sc.nextInt() - 1;
                 char chr = c[index];
                 char chr2 = (sc.next()).charAt(0);
@@ -34,13 +34,12 @@ public class Main {
                 set[chr2 - 'a'].add(index);
                 c[index] = chr2;
             } else {
-                // start以上end以下区間内にある英小文字の種類数を出力
                 // abcdbbd => 3
                 //  ^^^^^
                 
+                // start以上end以下区間内にある英小文字の種類数を出力
                 int start = sc.nextInt() - 1;
                 int end = sc.nextInt() - 1;
-                
                 int count = 0;
                 for (int i = 0; i < 26; i++) {
                     if (set[i].ceiling(start) == null) continue;
