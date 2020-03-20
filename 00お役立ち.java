@@ -95,6 +95,12 @@ map.remove("北海道");
 for (String key : map.keySet()) {
     int val = map.get(key);
 }
+if (!map.containsKey(key)) {
+    map.put(key, 1);
+} else {
+    int val = map.get(num);
+    map.put(num, val + 1);
+}
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<Integer> que = new ArrayDeque<Integer>();
