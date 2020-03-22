@@ -49,7 +49,7 @@ public class Main {
         if (ans == 0) {
             System.out.println(-1);
         } else {
-            // 3歩 = けんけんぱ1回分
+            // 3歩 = けんけんぱ1回分 
             System.out.println(ans / 3);
         }
     }
