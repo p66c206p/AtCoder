@@ -23,7 +23,7 @@ public class Main {
             to[(int)q].add(new long[]{p, dis});
         }
         
-        // 点kから各点までの距離を計算
+        // 点kから各点までの距離を計算 
         int query = sc.nextInt();
         int k = sc.nextInt() - 1;
         long[] distK = calcDist(k);
