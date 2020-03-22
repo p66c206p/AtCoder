@@ -28,8 +28,7 @@ public class Main {
         Arrays.fill(dist, INF);
         dist[start] = 0;
         
-        // que: ダイクストラ法
-        // BFSで距離を配る。
+        // ダイクストラ法: BFSで距離を配る。
         // (キューの先頭の点はそう来る他最短経路がないので最短距離が確定する)
         PriorityQueue<Point> que = new PriorityQueue<>();
         que.add(new Point(start, 0));
