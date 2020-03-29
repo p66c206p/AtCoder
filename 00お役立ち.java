@@ -2,6 +2,12 @@
 http://bit.ly/2Tu7y0Q // Javaで競技プログラミングをするときによく使う標準ライブラリ
 http://bit.ly/39xTxFd // グラフ理論の用語説明
 
+// Stringを1文字ずつ配列に入れる
+String str = sc.next();
+char c[] = str.toCharArray();
+int k = c[i] - 'a'; // 'b' -> 1
+char c = (char)(i + 'a'); // 3 -> 'd'
+
 // データ型の範囲
 int 　 21億 2*10^9  2,000,000,000
 long 922京 9*10^18 9,000,000,000,000,000,000
@@ -27,18 +33,6 @@ Setは.sortがないのでTreeSet（昇順）を用いる。
 // Stream API
 .sorted(Comparator.naturalOrder())
 .sorted(Comparator.reverseOrder())
- 
-// Deepコピー、値渡しのコピー
-Boolean[] visited = previousVisited.clone();
-
-// 2次元配列代入
-int[][] keyboard = new int[3][10];
-keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
-
-// Stringを1文字ずつ配列に入れる
-char c[] = str.toCharArray();
-int k = c[i] - 'a';
-char c = (char)(i + 'a');
 
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
@@ -53,7 +47,7 @@ containsを使う: Setが圧倒的に速い
 特定のindexのアクセスが速い → 配列
 出し入れの操作がメイン → キュー、スタック
     
-// Stringの比較
+// Stringの辞書順/比較
 [-11, -111, 0, 11, 111, 2, A, B, a, b, い, え]
 str1.compareTo(str2) は、str1 < str2 なら負の数、str1 > str2 なら正の数
 
@@ -83,6 +77,7 @@ for (int i = 0; i < n; i++) {
 Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
+set.contains("foo");
 // TreeSet(二分探索ができる
 
 // Map
@@ -115,10 +110,13 @@ PriorityQueue<Integer> que = new PriorityQueue<>(); // データを昇順で行�
 PriorityQueue<Integer> que = new PriorityQueue<>(Collections.reverseOrder()); // 降順で
 que.add(3);
 num = que.poll();
+ 
+// Deepコピー、値渡しのコピー
+Boolean[] visited = previousVisited.clone();
 
-// List型の配列
-List<String>[] logsOfMember = new ArrayList[n];
-Arrays.setAll(logsOfMember, new ArrayList<String>());   // fillは不可
+// 2次元配列代入
+int[][] keyboard = new int[3][10];
+keyboard[0] = new int[]{1,1,1,1,1,1,1,1,1,1};
 
 // 配列→ArrayList
 List<String> strList = Arrays.asList(array);
