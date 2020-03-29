@@ -2,6 +2,11 @@
 http://bit.ly/2Tu7y0Q // Javaで競技プログラミングをするときによく使う標準ライブラリ
 http://bit.ly/39xTxFd // グラフ理論の用語説明
 
+// 計算量
+10^5 -> O(NlogN)
+10^3 -> O(N^2)
+10^2 -> O(N^3)
+
 // Stringを1文字ずつ配列に入れる
 String str = sc.next();
 char c[] = str.toCharArray();
