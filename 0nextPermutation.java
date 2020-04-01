@@ -21,6 +21,7 @@ public class Main {
         } while (nextPermutation(array));
         
     }
+    
     public static boolean nextPermutation(int[] array) {
         for (int i = array.length - 1; i > 0; i--) {
             if (array[i - 1] < array[i]) {
