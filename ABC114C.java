@@ -22,7 +22,7 @@ public class Main {
             
             if (tmp > num) continue;
             
-            // 3, 5, 7を全てを含む数はカウント
+            // 3, 5, 7を全てを含む数はカウント 
             if (x * y * z == 1) count++;
             
             que.add(new long[]{tmp * 10 + 3, x | 1, y, z});
