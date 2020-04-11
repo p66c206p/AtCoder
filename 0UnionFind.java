@@ -22,7 +22,8 @@ class UnionFind {
         // ↑根まで辿る深さ(計算量)を減らす為
         // return a = b;とは、aにbを代入し、aを返すという意味
     }
-
+    
+    // 点x, yを連結させる=同じグループにする
     void unite(int x, int y) {
         int rx = root(x);
         int ry = root(y);
