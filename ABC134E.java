@@ -28,7 +28,7 @@ public class Main {
     
     public static int upperBound(List<Integer> list, int target) {
         // 初めてのtarget超過のindexを返す
-        // {1, 3, 3, 7} target: 3 -> 3
+        // {1, 3, 3, 7} target: 3 -> 3 
         
         int left = 0;
         int right = list.size();
