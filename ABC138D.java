@@ -27,7 +27,7 @@ public class Main {
             first[p] += count;
         }
         
-        // visited: 当該点を既に通ったか否か
+        // visited: 当該点を既に通ったか否か 
         boolean[] visited = new boolean[n];
         visited[0] = true;
         
