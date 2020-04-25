@@ -1,62 +1,57 @@
 import java.util.*;
 
 public class Main {
-    
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        Point[] point = new Point[n];
-        for (int i = 0; i < n; i++) {
-            point[i] = new Point();
-        }
-        int[] index = new int[n - 1];
         
-        // 自分に子を割り当てる
+        // index[i]: i番目に出力する点
+        int[] index = new int[n-1];
+        
+        // to: 隣接リスト
+        List<Integer>[] to = new List[n];
+        for (int i = 0; i < n; i++) {
+            to[i] = new ArrayList<Integer>();
+        }
         for (int i = 0; i < n - 1; i++) {
-            int p = sc.nextInt() - 1;
-            int q = sc.nextInt() - 1;
-            index[i] = q;   // 出力順を記憶する
-            
-            point[p].children.add(q);
+            int s = sc.nextInt() - 1;
+            int t = sc.nextInt() - 1;
+            to[s].add(t);
+            index[i] = t;
         }
         
-        // 自分の子を若い色から塗る
-        point[0].color = 0;
-        for (int i = 0; i < n; i++) {
-            int nowColor = 1;
-            int myColor = point[i].color;
+        // visited: 当該点を既に通ったか否か
+        boolean[] visited = new boolean[n];
+        visited[0] = true;
+        
+        
+        // max: colorsの最大値
+        // colors[i]: iの色
+        int max = 0;
+        int[] colors = new int[n];
+        // 頂点0から順に、親から子へ初期値を配り最終値を求める
+        Queue<int[]> que = new ArrayDeque<int[]>();
+        que.add(new int[]{0, 0});
+        while (!que.isEmpty()) {
+            int[] cur = que.poll();
+            int p = cur[0];
+            int color = cur[1];
             
-            for (Integer child : point[i].children) {
-                if (nowColor == myColor) {
-                    nowColor++;
-                }
-                
-                point[child].color = nowColor;
-                nowColor++;
+            int now = 1;
+            for (Integer q : to[p]) {
+                if (now == color) now++;
+                que.add(new int[]{q, now});
+                colors[q] = now;
+                max = Math.max(max, now);
+                now++;
             }
         }
         
-        // 必要な最小色数を出力
-        int max = 0;
-        for (Point p : point) {
-            max = Math.max(max, p.color);
-        }
+        // colors[x]をindex[i]順に出力
         System.out.println(max);
-        
-        // 子の色を出力順に出力
-        for (int i = 0; i < n - 1; i++) {
-            System.out.println(point[index[i]].color);
-        }
-        
-    }
-    
-    public static class Point {
-        int color;
-        List<Integer> children;
-        
-        Point() {
-            this.children = new ArrayList<Integer>();
+        for (int i = 0; i < n-1; i++) {
+            System.out.println(colors[index[i]]);
         }
     }
 }
