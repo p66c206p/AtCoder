@@ -67,6 +67,10 @@ class Point implements Comparable<Point> {
     
     @Override
     public int compareTo(Point o) {
-        return this.dist - o.dist;    //重みの小さい順
+        //重みの小さい順
+        if (this.dist < o.dist) {
+            return -1;
+        } 
+        return 1;
     }
 }
