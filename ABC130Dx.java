@@ -13,7 +13,7 @@ public class Main {
         
         long answer = shakutori(nums, k);
         
-        System.out.println(answer);
+        System.out.println(answer); 
     }
     
     public static long shakutori(int[] array, long k) {
