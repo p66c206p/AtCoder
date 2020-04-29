@@ -7,7 +7,7 @@ public class Main {
         int n = sc.nextInt();
         long m = sc.nextLong();
         
-        // to: 隣接リスト(有向)
+        // to: 隣接リスト(有向) 
         List<Integer>[] to = new List[n];
         for (int i = 0; i < n; i++) {
             to[i] = new ArrayList<Integer>();
