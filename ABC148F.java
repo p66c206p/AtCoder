@@ -17,7 +17,7 @@ public class Main {
             to[i] = new ArrayList<Integer>();
         }
         
-        // リストの作成
+        // リストの作成 
         for (int i = 0; i < n - 1; i++) {
             int s = sc.nextInt() - 1;
             int t = sc.nextInt() - 1;
