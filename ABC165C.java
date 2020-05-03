@@ -36,7 +36,7 @@ public class Main {
         System.out.println(ans);
     }
     
-    public static void dfs(int index, int num) {
+    public static void dfs(int index, int now) {
         // 終了条件
         if (index == n) {
             int score = 0;
@@ -48,7 +48,7 @@ public class Main {
         }
         
         // array: 全てが1以上m以下の、広義単調増加の数列
-        for (int i = num; i <= m; i++) {
+        for (int i = now; i <= m; i++) {
             array[index] = i;
             dfs(index + 1, i);
         }
