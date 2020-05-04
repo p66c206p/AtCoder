@@ -10,7 +10,7 @@ public class Main {
         // ex. 334, 2123, 3234566667
         Queue<Long> que = new ArrayDeque<Long>();
         
-        // 1～9をキューに入れる
+        // 1～9からBFSスタート
         for (int i = 1; i <= 9; i++) {
             que.add((long)i);
         }
@@ -29,7 +29,7 @@ public class Main {
                 return;
             }
             
-            // -1, 0, +1のパターンをキューに入れる
+            // 次の桁(-1, 0, +1)の3パターンをキューに入れる
             if (last != 0) {
                 que.add(x10 + last - 1);
             }
