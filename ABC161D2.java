@@ -38,7 +38,7 @@ public class Main {
         if (last != 0) {
             dfs(x10 + last - 1);
         }
-        // if (1 <= last <= 8)
+        // if (0 <= last <= 9)
             dfs(x10 + last);
         if (last != 9) {
             dfs(x10 + last + 1);
