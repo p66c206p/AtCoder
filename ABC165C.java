@@ -52,7 +52,7 @@ public class Main {
             return;
         }
         
-        // 次の項は前の項の値以上にする
+        // 次項は前項の値以上にする
         for (int i = now; i <= m; i++) {
             array[index] = i;
             dfs(index + 1, i);
