@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
         
         // que: 七五三数(候補) (全ての桁が7 or 5 or 3)
         Queue<long[]> que = new ArrayDeque<long[]>();
         
-        // 3, 5, 7をキューに入れる
+        // 3, 5, 7からBFSスタート
         // (後ろの3項は、1なら3,5,7が既に登場)
         que.add(new long[]{3, 1, 0, 0});
         que.add(new long[]{5, 0, 1, 0});
