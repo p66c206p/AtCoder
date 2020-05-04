@@ -12,14 +12,16 @@ public class Main {
     static int ans = 0;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         m = sc.nextInt();
         q = sc.nextInt();
         
+        // array: 全てが1以上m以下の、広義単調増加の数列
         array = new int[n];
         
+        // data[i]: [i]の条件を満たすならばscoreにd[i]点加算
         a = new int[q];
         b = new int[q];
         c = new int[q];
@@ -31,8 +33,11 @@ public class Main {
             d[i] = sc.nextInt();
         }
         
+        // arrayのパターンを全探索
+        // ex.[1, 1, 1], [1, 1, 2], ... , [m, m, m]
         dfs(0, 1);
         
+        // ans: scoreの最大値
         System.out.println(ans);
     }
     
@@ -47,7 +52,7 @@ public class Main {
             return;
         }
         
-        // array: 全てが1以上m以下の、広義単調増加の数列
+        // 次の項をnow以上にする
         for (int i = now; i <= m; i++) {
             array[index] = i;
             dfs(index + 1, i);
