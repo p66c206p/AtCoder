@@ -32,7 +32,7 @@ public class Main {
         // リストにルンルン数を追加
         list.add(cur);
         
-        // 次項はlast-1, last+0, last+1のパターン
+        // 次の桁はlast-1, last+0, last+1のパターン
         long x10 = cur * 10;
         long last = cur % 10;
         if (last != 0) {
