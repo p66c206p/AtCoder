@@ -111,6 +111,7 @@ int[] cur = que.peek(); // 見るだけ
 while (!que.isEmpty()) {}
 
 // PriorityQueue(優先順位を持つキュー)
+// (常にソートされてなくても良いならListの方がgood)
 PriorityQueue<Integer> que = new PriorityQueue<>(); // データを昇順で行列を作る
 PriorityQueue<Integer> que = new PriorityQueue<>(Collections.reverseOrder()); // 降順で
 que.add(3);
