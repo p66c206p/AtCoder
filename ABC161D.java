@@ -17,7 +17,7 @@ public class Main {
         
         // count: キューから出した回数
         int count = 0;
-        while (true) {
+        while (!que.isEmpty()) {
             long cur = que.poll();
             long x10 = cur * 10;
             long last = cur % 10;
