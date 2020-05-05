@@ -29,8 +29,7 @@ public class Main {
         // f(2) = f(2の倍数) - f(4) - f(6) - ... - f(12)
             // -> f(x) = f(xの倍数) - f(2*x) - f(3*x) - ...
         for (int i = k; i >= 1; i--) {
-            // ex. 3の倍数の個数^要素数
-            // <- (12/3)^n
+            // ex. f(3の倍数) = 3の倍数の個数^配列の長さ
             long baisuu = modpow((k / i), n);
             
             long tmp = 0;
