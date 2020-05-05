@@ -87,20 +87,20 @@ set.contains("foo");
 https://bit.ly/3c35u74
 
 // Map
-Map<String, Integer> map = new HashMap<String, Integer>();
+Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 Map<String, Integer> map = new LinkedHashMap<String, Integer>();   // 順番を保持できる
 map.put("北海道", 100);   // addではなくput
 map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
 map.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
 map.remove("北海道");
-for (String key : map.keySet()) {
+for (Integer key : map.keySet()) {
     int val = map.get(key);
 }
 if (!map.containsKey(key)) {
     map.put(key, 1);
 } else {
-    int val = map.get(num);
-    map.put(num, val + 1);
+    int val = map.get(key);
+    map.put(key, val + 1);
 }
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
