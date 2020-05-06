@@ -61,7 +61,7 @@ public class Main {
             
             // bitの各桁をなめる
             for (int d = 0; d < m; d++) {
-                // 1の桁はmaskに採用
+                // 桁dの値が1なら制約[d]をmaskに採用
                 if ((bit & (1<<d)) != 0) {
                     mask |= bitset[d];
                 }
