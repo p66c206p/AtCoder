@@ -13,17 +13,16 @@ public class Main {
         for (int i = 1; i <= amount; i++) {
             dp[i] = dp[i - 1] + 1;
             
-            for (int j = 1; j <= 6; j++) {
-                int pow = (int)Math.pow(6, j);
-                if (pow > i) break;
-                
+            // 6^x円は1回で引き出せるので
+            // dp[i - 6^x]から+1回で遷移できる
+            for (int pow = 1; pow <= 100000; pow *= 6) {
+                if (i - pow < 0) break;
                 dp[i] = Math.min(dp[i], dp[i - pow] + 1);
             }
             
-            for (int j = 1; j <= 5; j++) {
-                int pow = (int)Math.pow(9, j);
-                if (pow > i) break;
-                
+            // 9^x円も同様
+            for (int pow = 1; pow <= 100000; pow *= 9) {
+                if (i - pow < 0) break;
                 dp[i] = Math.min(dp[i], dp[i - pow] + 1);
             }
         }
