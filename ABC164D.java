@@ -9,63 +9,44 @@ public class Main {
         int n = str.length();
         int p = 2019;
         
-        // ans: i桁目～j桁目の部分列が2019の倍数であるパターン数
+        // ans: 文字列で、連続部分列がmod 2019で0になるi, jのパターン数
         // ex. 1817181712114
         //         ^^^^^
         long ans = 0;
         
-        // 2019の倍数になる桁i, jの組み合わせ全探索はO(N^2)
-        // -> 各桁の「2019の余り」をO(N)で計算する。
+        // 式変形
+        // ・連続部分列がmod 2019で0になるi, j
+        // -> ex. XXXX18171YYYYで、18171 ≡ 0 (mod 2019)
+        // -> 18171YYYY - YYYY ≡ 0 (mod m)
+        // -> 181710000 ≡ 0 (mod m)
+        // -> (s[j] - s[i]) * 10^4 ≡ 0 (mod m)
+        // -> (合同式で割り算はmod pと互いに素なら可能)
+        // -> (gcd(2019, 10) = 1)
+        // -> s[j] - s[i] ≡ 0 (mod 2019)
+        // -> s[j] ≡ s[i] (mod 2019) のパターン数
         
-        // d'[i]: 右からi桁目の値 * 10^i (mod 2019)
-        // ex. 1817181712114
-        // d'[0]: 4 % 2019 -> 4
-        // d'[1]: 10 % 2019 -> 10
-        // d'[5]: 700000 (mod 2019) -> ?
-        // ≡ 7 * 10 * 10^4
-        // ≡ 7 * 19240 (10^4 % 2019 = 1924)
-        // ≡ 7 * 1069 (19240 % 2019 = 1069)
-        // = 7483 % 2019 = 1426
-        
-        // d[i]: d'[i]の累積和
-        // d = {4,14,114,95,...}
-        int[] d = new int[n+1];
-        // ten: 10^i (mod 2019)
-        int ten = 1;
-        
-        // d[i]を計算する
+        // s: 累積和 (mod 2019)
         // (右の桁(c[n-1])から順に見る)
+        long[] s = new long[n+1];
+        int ten = 1;
         for (int i = n - 1; i >= 0; i--) {
-            // 1000000 % 2019は計算しんどいので、
-            int a = ((c[i] - '0') * ten) % p;
-            d[i] = (d[i+1] + a) % p;
+            // ex. c[i] * 10^x(mod m)
+            // -> c[i] * (10^(x-1)(mod m) * 10^1 % m)
+            // (10^(x-1)(mod m)は前のループで求めてる)
+            
+            long a = ((c[i] - '0') * ten) % p;
+            s[i] = (s[i+1] + a) % p;
             ten = (ten * 10) % p;
         }
         
-        // 「d[i] = d[j]となる」とは、
-        // 「ex. 181712114 % 2019 = 2114 % 2019」。
-        // -> 181710000 ≡ 0 (mod 2019)
-        // -> (合同式で割り算はmod pと互いに素でないと不能)
-        // -> (gcd(2019, 10) = 1)
-        // -> 18171 ≡ 0 (mod 2019)
-        // -> 18171 % 2019 = 0
-        // -> 18171は2019の倍数
-        
-        // map: d[]の値の頻度
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = n; i >= 0; i--) {
-            int key = d[i];
-            if (!map.containsKey(key)) {
-                map.put(key, 1);
-            } else {
-                int val = map.get(key);
-                map.put(key, val + 1);
-            }
-        }
-        // 同じ値の個数nから2つ選ぶパターン数 = nC2
-        for (Integer key : map.keySet()) {
-            int val = map.get(key);
-            ans += (long)val * (val-1) / 2;
+        // i, jのパターン数を数え上げる
+        Map<Long, Integer> map = new HashMap<Long, Integer>();
+        for (int i = 0; i <= n; i++) {
+            long key = s[i];
+            int cnt = map.getOrDefault(key, 0);
+            
+            ans += cnt;
+            map.put(key, ++cnt);
         }
         System.out.println(ans);
     }
