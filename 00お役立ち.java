@@ -96,6 +96,7 @@ map.remove("北海道");
 for (Integer key : map.keySet()) {
     int val = map.get(key);
 }
+int val = map.getOrDefault(key, 0);
 if (!map.containsKey(key)) {
     map.put(key, 1);
 } else {
