@@ -18,10 +18,10 @@ public class Main {
         m = sc.nextInt();
         q = sc.nextInt();
         
-        // array: 全てが1以上m以下の、広義単調増加の数列
+        // array: 要素の値が1以上m以下からなる、広義単調増加の数列
         array = new int[n];
         
-        // data[i]: [i]の条件を満たすならばscoreにd[i]点加算
+        // 全探索する時のデータを取得
         a = new int[q];
         b = new int[q];
         c = new int[q];
@@ -44,6 +44,7 @@ public class Main {
     public static void dfs(int index, int now) {
         // 終了条件
         if (index == n) {
+            // できあがったarrayで計算
             int score = 0;
             for (int i = 0; i < q; i++) {
                 if (array[b[i]] - array[a[i]] == c[i]) score += d[i];
@@ -52,7 +53,7 @@ public class Main {
             return;
         }
         
-        // 次項は前項の値以上にする
+        // 次項の取る値: now以上(広義単調増加)
         for (int i = now; i <= m; i++) {
             array[index] = i;
             dfs(index + 1, i);
