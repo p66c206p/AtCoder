@@ -12,6 +12,7 @@ String str = sc.next();
 char c[] = str.toCharArray();
 int k = c[i] - 'a'; // 'b' -> 1
 char c = (char)(i + 'a'); // 3 -> 'd'
+String str = sc.nextLine(); // 空白文字も含めて1行を取りたい時
 
 // データ型の範囲
 int 　 21億 2*10^9  2,000,000,000
