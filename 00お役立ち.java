@@ -98,12 +98,13 @@ for (Integer key : map.keySet()) {
     int val = map.get(key);
 }
 int val = map.getOrDefault(key, 0);
-if (!map.containsKey(key)) {
-    map.put(key, 1);
-} else {
-    int val = map.get(key);
-    map.put(key, val + 1);
-}
+map.put(key, ++val);
+// if (!map.containsKey(key)) {
+//     map.put(key, 1);
+// } else {
+//     int val = map.get(key);
+//     map.put(key, val + 1);
+// }
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<Integer> que = new ArrayDeque<Integer>();
