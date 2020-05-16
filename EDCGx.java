@@ -35,8 +35,8 @@ public class Main {
             }
         }
         
-        // counter[i]: 点iまでの最長距離
-        int[] counter = new int[n];
+        // dist[i]: 点iまでの最長距離
+        int[] dist = new int[n];
         
         // max: 最長パスの距離
         int max = 0;
@@ -46,8 +46,8 @@ public class Main {
             int p = que.poll();
             
             for (Integer q : to[p]) {
-                counter[q] = Math.max(counter[q], counter[p] + 1);
-                max = Math.max(max, counter[q]);
+                dist[q] = Math.max(dist[q], dist[p] + 1);
+                max = Math.max(max, dist[q]);
                 
                 // qの親からpを外し、親が0なら距離を配れる
                 from[q].remove(p);
