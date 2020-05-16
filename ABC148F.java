@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    static List<Integer>[] to; // [i]と隣接する頂点のリスト
+    static List<Integer>[] to;
     static int[] dist;
     static int n;
     
@@ -17,7 +17,7 @@ public class Main {
             to[i] = new ArrayList<Integer>();
         }
         
-        // リストの作成 
+        // to: 隣接リスト(無向)
         for (int i = 0; i < n - 1; i++) {
             int s = sc.nextInt() - 1;
             int t = sc.nextInt() - 1;
@@ -46,7 +46,7 @@ public class Main {
         return dist;
     }
     
-    // 頂点pと隣接する点に自分の値+1を配ることで距離を与える
+    // 子qに、距離+1を配る
     public static void dfs(int p, int d, int par) {
         dist[p] = d;
         
