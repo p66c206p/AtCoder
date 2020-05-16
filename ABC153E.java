@@ -32,13 +32,13 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int w = 0; w <= W; w++) {
                 // 品物iを選択できる(重量[i]がw以下)
-                if (weights[i] <= w) {
+                if (w - weights[i] >= 0) {
                     // 選択できる場合、選択する方/しない方の最善を選ぶ
                     // (選択するにはダメージ[i]分少ないとこからなら遷移できる)
                     dp[i + 1][w] = Math.min(dp[i + 1][w - weights[i]] + values[i], dp[i][w]);
                 } else {
-                    // 選択できない場合、品物i-1の時と変わらない
-                    dp[i + 1][w] = Math.min(values[i], dp[i][w]);
+                    // 選択できない場合、ダメージ0から遷移する
+                    dp[i + 1][w] = Math.min(dp[i + 1][0] + values[i], dp[i][w]);
                 }
             }
         }
