@@ -2,8 +2,9 @@ import java.util.*;
 
 public class Main {
     static long INF = 1000000000000000L;
+    
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         Scanner sc = new Scanner(System.in);
         int h = sc.nextInt();
         int w = sc.nextInt();
