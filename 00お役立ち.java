@@ -20,16 +20,19 @@ long 922京 9*10^18 9,000,000,000,000,000,000
 double 有効桁数16桁
 int 5 / int 3 = 1(a余りbならaが答え)(切り捨て)
 
+// 配列を並べて表示
+System.out.println(Arrays.toString(array));
+
 // ソート 昇順、降順
 // 配列
-Arrays.sort(foo);
-Arrays.sort(foo, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
+Arrays.sort(array);
+Arrays.sort(array, Collections.reverseOrder());   // 降順はラッパークラスのみ使用可能
 // 2次元配列
-Arrays.sort(foo, (a, b) -> Integer.compare(a[0], b[0]));    // foo[][0]で
-Arrays.sort(foo, (a, b) -> Integer.compare(b[0], a[0]));    // foo[][0]で
-Arrays.sort(foo, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][1]で
-Arrays.sort(foo, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][1]で
-Arrays.sort(foo, (a, b) -> a[0].compareTo(b[0]));   // String向け
+Arrays.sort(array, (a, b) -> Integer.compare(a[0], b[0]));    // foo[][0]で
+Arrays.sort(array, (a, b) -> Integer.compare(b[0], a[0]));    // foo[][0]で
+Arrays.sort(array, (a, b) -> Integer.compare(a[1], b[1]));    // foo[][1]で
+Arrays.sort(array, (a, b) -> Integer.compare(b[1], a[1]));    // foo[][1]で
+Arrays.sort(array, (a, b) -> a[0].compareTo(b[0]));   // String向け
  - 優先順位を持つ複数のソートが必要な場合、第三→第二→第一のように優先順位が低い順にソートするとOK
 // List
 list.sort(Comparator.naturalOrder());
@@ -39,9 +42,6 @@ Setは.sortがないのでTreeSet（昇順）を用いる。
 // Stream API
 .sorted(Comparator.naturalOrder())
 .sorted(Comparator.reverseOrder())
-
-// 配列を並べて表示
-System.out.println(Arrays.toString(array));
 
 // ListとSetの使い分け（上の方が優先順位が高い）
 要素の重複: ある(List)、ない(Set)
