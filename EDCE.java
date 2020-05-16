@@ -41,6 +41,9 @@ public class Main {
                 }
             }
         }
+        // for (int i = 0; i < n+1; i++) {
+        //     System.out.println(Arrays.toString(dp[i]));
+        // }
         
         // ans: 品物nまでなめた時の、重量がW以下で最大の価値
         int ans = 0;
