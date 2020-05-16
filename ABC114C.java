@@ -26,12 +26,13 @@ public class Main {
             long y = cur[2];
             long z = cur[3];
             
+            // 終了条件: n以下を全部見た
             if (num > n) continue;
             
             // 3, 5, 7全て登場するならカウント 
             if (x * y * z == 1) count++;
             
-            // x10+3, x10+5, x10+7の子をキューに入れる
+            // 次の桁のパターンをキューに入れる x10+3, x10+5, x10+7
             que.add(new long[]{num * 10 + 3, x | 1, y, z});
             que.add(new long[]{num * 10 + 5, x, y | 1, z});
             que.add(new long[]{num * 10 + 7, x, y, z | 1});
