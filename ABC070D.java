@@ -42,9 +42,12 @@ public class Main {
     public static void dfs(int p, long d, int par) {
         dist[p] = d;
         
-        for (int[] q : to[p]) {
-            if (q[0] == par) continue;
-            dfs(q[0], d + q[1], p);
+        for (int[] qData : to[p]) {
+            int q = qData[0];
+            int PtoQ = qData[1];
+            if (q == par) continue;
+            
+            dfs(q, d + PtoQ, p);
         }
     }
 }
