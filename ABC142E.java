@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Main {
+    static long INF = 1001001001001001001L;
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
@@ -15,10 +16,10 @@ public class Main {
             // 集合s (ex. 1011 = bit0,1,3を含む集合)
             int s = 0;
             for (int j = 0; j < k; j++) {
-                int e = sc.nextInt() - 1;
+                int digit = sc.nextInt() - 1;
                 
-                // e番目のbitを立てる
-                s |= 1<<e;
+                // digit番目のbitを立てる
+                s |= 1<<digit;
             }
             
             array[i][0] = s;
@@ -27,7 +28,7 @@ public class Main {
         
         // dp[s] = 集合sに至るまでの最小コスト
         long[] dp = new long[1<<n];
-        Arrays.fill(dp, 1001001001001001001L);
+        Arrays.fill(dp, INF);
         dp[0] = 0;
         for (int s = 0; s < 1<<n; s++) {
             for (int i = 0; i < m; i++) {
@@ -41,10 +42,7 @@ public class Main {
         }
         
         // 演算順位に注意
-        if (dp[(1<<n) - 1] == 1001001001001001001L) {
-            System.out.println(-1);
-        } else {
-            System.out.println(dp[(1<<n) - 1]);
-        }
+        if (dp[(1<<n) - 1] == INF) dp[(1<<n) - 1] = -1;
+        System.out.println(dp[(1<<n) - 1]);
     }
 }
