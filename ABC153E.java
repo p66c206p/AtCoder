@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class Main {
+    static int INF = 1001001009;
+    
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class Main {
         // 初期化
         for (int i = 0; i < n; i++) {
             for (int w = 0; w <= W; w++) {
-                dp[i][w] = 1000000000;
+                dp[i][w] = INF;
             }
         }
         // 0ダメージ与えられる最小のコストは0
@@ -40,6 +42,9 @@ public class Main {
                 }
             }
         }
+        // for (int i = 0; i < n+1; i++) {
+        //     System.out.println(Arrays.toString(dp[i]));
+        // }
         
         System.out.println(dp[n][W]);
     }
