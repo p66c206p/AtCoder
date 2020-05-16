@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Main {
     static long INF = 1001001001001001001L;
+    
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
@@ -29,10 +30,10 @@ public class Main {
         // 考慮する品物を1つずつ増やして考える
         for (int i = 0; i < n; i++) {
             for (int v = 0; v <= V; v++) {
-                // 品物iを選択できる(重量[i]がw以下)
+                // 品物iを選択できる(価値[i]がv以下)
                 if (v - values[i] >= 0) {
                     // 選択できる場合、選択する方/しない方の最善を選ぶ
-                    // (選択するには重量[i]分少ないとこからなら遷移できる)
+                    // (選択するには価値[i]分少ないとこからなら遷移できる)
                     dp[i + 1][v] = Math.min(dp[i][v - values[i]] + weights[i], dp[i][v]);
                 } else {
                     // 選択できない場合、品物i-1の時と変わらない
