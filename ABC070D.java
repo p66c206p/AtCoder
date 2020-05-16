@@ -38,7 +38,7 @@ public class Main {
         }
     }
     
-    // 頂点pと隣接する点に自分の値+距離を配る
+    // 子qに、「pまでの距離+qへの距離」を配る
     public static void dfs(int p, long d, int par) {
         dist[p] = d;
         
