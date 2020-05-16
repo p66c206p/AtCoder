@@ -11,6 +11,7 @@ public class Main {
         UnionFind uf = new UnionFind(n);
         
         // to: 隣接リスト
+        // m組の相互フォロー
         List<Integer>[] to = new List[n];
         for (int i = 0; i < n; i++) {
             to[i] = new ArrayList<Integer>();
@@ -30,6 +31,7 @@ public class Main {
         }
         
         // to2: 隣接リスト2
+        // k組の相互ブロック
         List<Integer>[] to2 = new List[n];
         for (int i = 0; i < n; i++) {
             to2[i] = new ArrayList<Integer>();
@@ -42,7 +44,8 @@ public class Main {
             to2[q].add(p);
         }
         
-        // 同グループ内の点で、隣接リスト1,2にない点の数を出力
+        // count: 自分と相互フォローの人から辿れる、未フォローで相互ブロックでない人の数
+        // -> 同グループ内の点で、隣接リスト1,2にない点の数
         for (int i = 0; i < n; i++) {
             // count: グループの要素数 - 自分 - 隣接リスト1
             int count = uf.size[uf.root(i)];
@@ -57,7 +60,6 @@ public class Main {
                 }
             }
             
-            // countを出力
             System.out.print(count);
             if (i != n - 1) {
                 System.out.print(" ");
