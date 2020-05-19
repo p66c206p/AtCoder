@@ -9,6 +9,7 @@ public class Main {
         // ルンルン数: (次の桁に-1～+1で行ける)
         // ex. 334, 2123, 3234566667 (0はNG)
         
+        // k番目のルンルン数を出力
         int count = 0;
         for (long i = 1; i <= 3234566667L; i++) {
             // System.out.println(i);
@@ -42,7 +43,6 @@ public class Main {
             
             if (ok) count++;
             
-            // k番目のルンルン数を出力
             if (count == k) {
                 System.out.println(i);
                 return;
