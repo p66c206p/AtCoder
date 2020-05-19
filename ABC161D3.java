@@ -34,8 +34,8 @@ public class Main {
                         tmp *= 10;
                     }
                     
-                    tmp--;
                     i += tmp;
+                    --;
                     
                     break;
                 }
