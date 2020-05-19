@@ -6,6 +6,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
         
+        // ルンルン数: (次の桁に-1～+1で行ける)
+        // ex. 334, 2123, 3234566667 (0はNG)
+        
         int count = 0;
         for (long i = 1; i <= 3234566667L; i++) {
             // System.out.println(i);
@@ -20,7 +23,7 @@ public class Main {
                 // 条件を満たさないものは除外
                 if (Math.abs(prev - next) > 1) ok = false;
                 
-                // 次の桁が前の桁より2以上離れてるならそこまで飛ぶ
+                // 次の桁が前の桁より2以上小さいならそこまで飛ぶ
                 // ex. 299 -> 300 -> 320
                 if (prev - next > 1) {
                     ok = false;
@@ -39,6 +42,7 @@ public class Main {
             
             if (ok) count++;
             
+            // k番目のルンルン数を出力
             if (count == k) {
                 System.out.println(i);
                 return;
