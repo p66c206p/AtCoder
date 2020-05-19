@@ -35,7 +35,7 @@ public class Main {
                     }
                     
                     i += tmp;
-                    --;
+                    i--;
                     
                     break;
                 }
