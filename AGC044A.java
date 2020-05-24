@@ -70,82 +70,82 @@ public class Main {
                 
                 // -1のパターン
                 q = 1;
-                PtoQ = dis + (p-1) * d;
-                // if (PtoQ < dist.getOrDefault(q, INF)) {
+                PtoQ = (p-1) * d;
+                // if (dis + PtoQ < dist.getOrDefault(q, INF)) {
                 if (dis / d + (p-1) < dist.getOrDefault(q, INF) / d) {  // オーバーフロー対策
-                    dist.put(q, PtoQ);
-                    que.add(new Point(q, PtoQ));
+                    dist.put(q, dis + PtoQ);
+                    que.add(new Point(q, dist.get(q)));
                 }
                 
                 // /2のパターン
                 if (p % 2 == 0) {
                     q = p / 2;
-                    PtoQ = dis + a;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = a;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 } else {
                     q = p / 2;
-                    PtoQ = dis + d * (p % 2) + a;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (p % 2) + a;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                     
                     q = (p+1) / 2;
-                    PtoQ = dis + d * (2 - (p % 2)) + a;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (2 - (p % 2)) + a;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 }
                 
                 // /3のパターン
                 if (p % 3 == 0) {
                     q = p / 3;
-                    PtoQ = dis + b;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = b;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 } else {
                     q = p / 3;
-                    PtoQ = dis + d * (p % 3) + b;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (p % 3) + b;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                     
                     q = (p+2) / 3;
-                    PtoQ = dis + d * (3 - (p % 3)) + b;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (3 - (p % 3)) + b;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 }
                 
                 // /5のパターン
                 if (p % 5 == 0) {
                     q = p / 5;
-                    PtoQ = dis + c;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = c;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 } else {
                     q = p / 5;
-                    PtoQ = dis + d * (p % 5) + c;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (p % 5) + c;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                     
                     q = (p+4) / 5;
-                    PtoQ = dis + d * (5 - (p % 5)) + c;
-                    if (PtoQ < dist.getOrDefault(q, INF)) {
-                        dist.put(q, PtoQ);
-                        que.add(new Point(q, PtoQ));
+                    PtoQ = d * (5 - (p % 5)) + c;
+                    if (dis + PtoQ < dist.getOrDefault(q, INF)) {
+                        dist.put(q, dis + PtoQ);
+                        que.add(new Point(q, dist.get(q)));
                     }
                 }
             }
