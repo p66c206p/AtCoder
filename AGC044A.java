@@ -53,6 +53,7 @@ public class Main {
                 // System.out.println(p + " " + dis);
                 
                 // 子に「自分の距離 + p→qの距離」を配る
+                // 最短距離が更新される場合だけキューに入れる
                 long q;
                 long PtoQ;
                 
@@ -163,7 +164,7 @@ class Point implements Comparable<Point> {
     }
     
     @Override
-    public int compareTo(Point o) {
+    public int compareTo(Point o) { // longでもint
         //重みの小さい順
         if (this.dist < o.dist) {
             return -1;
