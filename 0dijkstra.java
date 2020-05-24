@@ -40,6 +40,9 @@ public class Main {
             // distより大きいdisを持つ点からは配らせない
             if (dis > dist[p]) continue;
             
+            // // 確定したpとdis
+            // System.out.println(p + " " + dis);
+            
             // 子に「自分の距離 + p→qの距離」を配る
             for (int[] qData : to[p]) {
                 int q = qData[0];
