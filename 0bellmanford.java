@@ -11,7 +11,7 @@ public class Main {
         int start = 0;
         int goal = n - 1;
         
-        // ans: 点0から点Nに行くまでの最小コスト
+        // ans: 点1から点Nに行くまでの最小コスト
         
         // to: 隣接リスト(有向)(自己ループ有)
         // rto: 逆向きの矢印
