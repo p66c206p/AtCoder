@@ -11,7 +11,7 @@ public class Main {
         int start = sc.nextInt() - 1;
         int goal = sc.nextInt() - 1;
         
-        // to: 隣接リスト(有向)
+        to: 隣接リスト(有向)
         List<int[]>[] to = new List[n];
         for (int i = 0; i < n; i++) {
             to[i] = new ArrayList<int[]>();
