@@ -12,9 +12,9 @@ public class Main {
         // 深さiにおける頂点数(count[i])の最大値を考える。
         
         // 下から見る時、count[i]はarray[i]個だけ増やせる
-        // -> count[i] = arrayの後ろからの累積和。
+        // -> count[i]のmax = arrayの後ろからの累積和。
         // 上から見る時、頂点数は葉を引いた2倍だけ増やせる
-        // <- オーバーフローしそう。
+        // <- オーバーフローしそう。 (深さの最大値は10^5)
         // -> 上から見るのを都度、下からのmaxでカットしてやる。
         
         int n = sc.nextInt();
@@ -41,7 +41,7 @@ public class Main {
             // sum[i]が上限ならそれにする
             count[i] = Math.min(sum[i], now);
             
-            // 次見るときは葉を引いた数を2倍にする
+            // 次見るときは葉を引いた数の2倍にする
             now = count[i] - array[i];
             if (now < 0) {
                 System.out.println(-1);
