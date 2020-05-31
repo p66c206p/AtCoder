@@ -114,6 +114,11 @@ int[] cur = que.poll(); // 出す
 int[] cur = que.peek(); // 見るだけ
 while (!que.isEmpty()) {}
 
+ArrayDeque<String> deq = new ArrayDeque<>();
+deq.offerFirst("sentou");
+deq.offerLast("matsubi");
+deq.pollFirst();
+
 // PriorityQueue(優先順位を持つキュー)
 // (常にソートされてなくても良いならListの方がgood)
 PriorityQueue<Integer> que = new PriorityQueue<>(); // データを昇順で行列を作る
