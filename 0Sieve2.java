@@ -8,11 +8,10 @@ public class Main {
         // n (10^12以下なら高速)
         long n = sc.nextLong();
         
-        // map: nの素因数の頻度 (60 => (2 => 2, 3 => 1, 5 => 1)
+        // map: nの素因数の頻度 (60 => (2 -> 2, 3 -> 1, 5 -> 1)
         // list: nの素因数のリスト (60 => [2, 2, 3, 5])
         Map<Long, Integer> map = new HashMap<Long, Integer>();
         List<Long> list = new ArrayList<Long>();
-        
         long m = n;
         for (long i = 2; (i * i) <= n; i++) {
             int cnt = 0;
