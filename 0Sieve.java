@@ -1,3 +1,18 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // Your code here!
+        
+        Sieve sieve = new Sieve(12311);
+        Map<Integer, Integer> map = sieve.factorMap(60);
+        
+        for (Integer key : map.keySet()) {
+            int val = map.get(key);
+            System.out.println(key + " " + val);
+        }
+    }
+}
 class Sieve {
     int[] minFactor;    // 最小の素因数
 
@@ -48,12 +63,8 @@ class Sieve {
         List<Integer> factorList = factorList(x);
         
         for (Integer f : factorList) {
-            if (!res.containsKey(f)) {
-                res.put(f, 1);
-            } else {
-                int count = res.get(f);
-                res.put(f, count + 1);
-            }
+            int count = res.getOrDefault(f, 0);
+            res.put(f, ++count);
         }
         
         // for (int i = 1; i <= x; i++) {
