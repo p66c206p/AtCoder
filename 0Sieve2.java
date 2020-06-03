@@ -15,16 +15,16 @@ public class Main {
         
         long m = n;
         for (long i = 2; (i * i) <= n; i++) {
-            int count = 0;
+            int cnt = 0;
             
             while ((m % i) == 0) {
-                count++;
+                cnt++;
                 m /= i;
                 list.add(i);
             }
             
-            if (count > 0) {
-                map.put(i, count);
+            if (cnt > 0) {
+                map.put(i, cnt);
             }
         }
         if (m > 1) {
