@@ -51,9 +51,7 @@ public class Main {
                 array[i] = sum[i];
                 now += array[i];
             }
-            
             long max = (long)n * n;
-            
             if (now == max) {
                 for (int i = 0; i < n; i++) {
                     System.out.print(array[i]);
