@@ -1,4 +1,4 @@
-public static long modpow(long a, long n) {
+public static long modpow(long a, long n) { 
     long res = 1;
     while (n > 0) {
         long tmp = n & 1;
