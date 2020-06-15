@@ -84,8 +84,9 @@ Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
 set.contains("foo");
-// TreeSet: ソートされたSet (重複不可)(二分探索ができる)
+// TreeSet(平衡二分探索木): ソートされたSet (重複不可)(二分探索ができる)
 https://bit.ly/3c35u74
+// TreeMap: 重複ありverの平衡二分探索木
 
 // Map
 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
