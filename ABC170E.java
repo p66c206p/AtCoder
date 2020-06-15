@@ -4,7 +4,7 @@ public class Main {
     static int max = 200000;
     
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
