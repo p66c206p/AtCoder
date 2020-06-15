@@ -4,7 +4,7 @@ public class Main {
     static int max = 200000;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
@@ -13,6 +13,11 @@ public class Main {
         // 生徒aは学校bに所属し成績はcである。
         // -> 番号iの生徒を学校jに転校させる
         // -> 「各学校の1位」の最小値を出力する　をQ回繰り返す。
+        
+        // idea:
+        // 時間がかかること
+        // => 学校の成績の集合で、生徒iの成績を検索/削除すること。
+        // -> Setなら検索が速い。
         
         // how:
         // 1.各学校の成績の集合score[]を作る。
