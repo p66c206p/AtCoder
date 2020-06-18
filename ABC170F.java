@@ -38,8 +38,8 @@ public class Main {
         int[] dx = new int[]{1, 0, -1, 0};
         int[] dy = new int[]{0, 1, 0, -1};
         
-        // ans = BFS((sx, sy)→(gx, gy)までの最短経路の深さ)
-        int ans = -1;
+        // steps = BFS((sx, sy)→(gx, gy)までの最短経路の深さ)
+        int steps = -1;
         Queue<int[]> que = new ArrayDeque<int[]>();
         que.add(new int[]{sx, sy, 0});
         visited[sx][sy] = true;
@@ -76,6 +76,6 @@ public class Main {
                 }
             }
         }
-        System.out.println(ans);
+        System.out.println(steps);
     }
 }
