@@ -84,9 +84,10 @@ Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
 set.contains("foo");
-// TreeSet(平衡二分探索木): ソートされたSet(検索削除追加がO(logN))(重複不可)
+// TreeSet: 検索削除追加がO(logN)で出来るPriorityQueue (平衡二分探索木)
 https://bit.ly/3c35u74
-// TreeMap: 重複ありverの平衡二分探索木
+// TreeMap: 重複OKのTreeSet
+https://bit.ly/37G6Nat
 
 // Map
 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
