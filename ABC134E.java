@@ -5,43 +5,42 @@ public class Main {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        List<Integer> list = new ArrayList<Integer>();
+        TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
         
-        // i番目の値に対して、どの席よりも値が小さいなら、その値の席を新規に追加する。
-        // そうでない場合、自分の値に最も近い席の値を自分の値に書き換える。
+        // process:
+        // 次のルールで、n個の値を集合に追加する。
+        // rule: 自分より小さい値がいれば、自分に最も近い値を自分に書き換える。
+        //       いない場合は、誰も書き換えず自分を追加する。
+        
+        // ans: 集合の要素数
         // ex. {2, 1, 4, 5, 3} =>
-        // 1: {2, 4, 5}
-        // 2: {1, 3} => ans = 2;
+        // {2} -> {1,2} -> {1,4} -> {1,5} -> {3,5} ans = 2;
+        
         while (n-- > 0) {
-            int value = sc.nextInt() * (-1);
-            int index = upperBound(list, value);
-            if (list.size() == index) {
-                list.add(value);
+            int num = sc.nextInt();
+            
+            if (map.lowerKey(num) == null) {
+                int val = map.getOrDefault(num, 0);
+                map.put(num, ++val);
             } else {
-                list.set(index, value);
+                int key = map.lowerKey(num);
+                int val = map.get(key);
+                if (val == 1) {
+                    map.remove(key);
+                } else {
+                    map.put(key, --val);
+                }
+                val = map.getOrDefault(num, 0);
+                map.put(num, ++val);
             }
         }
         
-        // ans: 席の数 
-        System.out.println(list.size());
-    }
-    
-    public static int upperBound(List<Integer> list, int target) {
-        // 初めてのtarget超過のindexを返す
-        // {1, 3, 3, 7} target: 3 -> 3 
-        
-        int left = 0;
-        int right = list.size();
-        
-        while (left < right) {
-            int center = (left + right) / 2;
-            if (list.get(center) <= target) {
-                left = center + 1;
-            } else {
-                right = center;
-            }
+        // TreeMapなので、集合の要素数はvalの総和
+        int ans = 0;
+        for (Integer key : map.keySet()) {
+            int val = map.get(key);
+            ans += val;
         }
-        
-        return left;
+        System.out.println(ans);
     }
 }
