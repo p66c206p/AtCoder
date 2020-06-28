@@ -18,23 +18,24 @@ public class Main {
 
 class Sieve {
     int[] minFactor;    // 最小の素因数
+    int[] factorCount;  // 約数の個数
 
     Sieve(int n) {
         minFactor = new int[n + 1];
         Arrays.fill(minFactor, -1);
+        factorCount = new int[n + 1];
+        Arrays.fill(factorCount, 1);
         
         for (int i = 2; i <= n; i++) {
-            // 素数でないなら篩をかけない
-            if (minFactor[i] != -1) continue;
+            // // 素数でないなら篩をかけない
+            // if (minFactor[i] != -1) continue;
             
-            minFactor[i] = i;
+            factorCount[i]++;
             
             // 自分の倍数の最小の素因数を自分とする
             // (但し未確定の数に限る)
             for (int j = 2; i * j <= n; j++) {
-                if (minFactor[i * j] == -1) {
-                    minFactor[i * j] = i;
-                }
+                factorCount[i * j]++;
             }
         }
     }
