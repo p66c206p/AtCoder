@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         
@@ -15,20 +15,26 @@ public class Main {
         System.out.println(ans);
     }
 }
+
 class Sieve {
     int[] minFactor;    // 最小の素因数
-    int[] factorCount;  // 約数の個数
-    
-    Sieve(int n) {      // (N <= 10^7)
-        factorCount = new int[n + 1];
-        
-        Arrays.fill(factorCount, 1);
+
+    Sieve(int n) {
+        minFactor = new int[n + 1];
+        Arrays.fill(minFactor, -1);
         
         for (int i = 2; i <= n; i++) {
-            factorCount[i]++;
+            // 素数でないなら篩をかけない
+            if (minFactor[i] != -1) continue;
             
+            minFactor[i] = i;
+            
+            // 自分の倍数の最小の素因数を自分とする
+            // (但し未確定の数に限る)
             for (int j = 2; i * j <= n; j++) {
-                factorCount[i*j]++;
+                if (minFactor[i * j] == -1) {
+                    minFactor[i * j] = i;
+                }
             }
         }
     }
