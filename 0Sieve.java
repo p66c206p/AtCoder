@@ -3,8 +3,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
         
-        Sieve sieve = new Sieve(12311);
+        Sieve sieve = new Sieve(n);
+        
         Map<Integer, Integer> map = sieve.factorMap(60);
         
         for (Integer key : map.keySet()) {
@@ -13,25 +16,26 @@ public class Main {
         }
     }
 }
+
 class Sieve {
     int[] minFactor;    // 最小の素因数
 
     Sieve(int n) {
         minFactor = new int[n + 1];
-        minFactor[0] = -1;
-        minFactor[1] = -1;
+        Arrays.fill(minFactor, -1);
         
         for (int i = 2; i <= n; i++) {
-            if (minFactor[i] != 0) continue;
+            // 素数でないなら篩をかけない
+            if (minFactor[i] != -1) continue;
             
             minFactor[i] = i;
             
-            if ((long)i * i > (long)n) continue;
-            
-            for (int j = i * i; j <= n; j += i) {
-                if (minFactor[j] != 0) continue;
-                
-                minFactor[j] = i;
+            // 自分の倍数の最小の素因数を自分とする
+            // (但し未確定の数に限る)
+            for (int j = 2; i * j <= n; j++) {
+                if (minFactor[i * j] == -1) {
+                    minFactor[i * j] = i;
+                }
             }
         }
     }
