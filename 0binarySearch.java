@@ -1,5 +1,5 @@
 public static int lowerBound(int[] array, int target) {
-    // 初めてのtarget以上のindexを返す
+    // target"以上の"初めての場所を返す
     // {1, 3, 3, 7} target: 3 -> 1
     
     int left = 0;
@@ -18,7 +18,7 @@ public static int lowerBound(int[] array, int target) {
 }
 
 public static int upperBound(int[] array, int target) {
-    // 初めてのtarget超過のindexを返す
+    // target"より大きい"初めての場所を返す
     // {1, 3, 3, 7} target: 3 -> 3
     
     int left = 0;
