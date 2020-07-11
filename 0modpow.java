@@ -1,10 +1,19 @@
-public static long modpow(long a, long n) { 
-    long res = 1;
-    while (n > 0) {
-        long tmp = n & 1;
-        if (tmp > 0) res = res * a % MOD;
-        a = a * a % MOD;
-        n >>= 1;
+    public static long modpow(long num, long n) {
+        // ex. 3^10
+        // 3^10 = 3^(0b1010)
+        // = 3^8が1個 * 3^4が0個 * 3^2が1個 * 3^1が0個
+        
+        long res = 1;
+        while (n > 0) {
+            long lsb = n & 1;
+            if (lsb == 1) {
+                res *= num;
+                res %= MOD;
+            }
+            
+            num *= num;
+            num %= MOD;
+            n = n >> 1;
+        }
+        return res;
     }
-    return res;
-}
