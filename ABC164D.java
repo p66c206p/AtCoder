@@ -25,24 +25,26 @@ public class Main {
         // -> s[j] - s[i] ≡ 0 (mod 2019)
         // -> s[j] ≡ s[i] (mod 2019) のパターン数
         
-        // s: 累積和 (mod 2019)
-        // (右の桁(c[n-1])から順に見る)
-        long[] s = new long[n+1];
-        int ten = 1;
+        // mod[0]: mで割った余り
+        // ex. 13524 -> {13524%m, 3524%m, 524%m, 24%m, 4%m}
+        long[] mod = new long[n+1];
+        int digit = 1;
+        int m = p;
         for (int i = n - 1; i >= 0; i--) {
-            // ex. c[i] * 10^x(mod m)
-            // -> c[i] * (10^(x-1)(mod m) * 10^1 % m)
-            // (10^(x-1)(mod m)は前のループで求めてる)
+            long num = (c[i] - '0') * digit;
+            num %= m;
             
-            long a = ((c[i] - '0') * ten) % p;
-            s[i] = (s[i+1] + a) % p;
-            ten = (ten * 10) % p;
+            mod[i] = mod[i+1] + num;
+            mod[i] %= m;
+            
+            digit *= 10;
+            digit %= m;
         }
         
         // i, jのパターン数を数え上げる
         Map<Long, Integer> map = new HashMap<Long, Integer>();
         for (int i = 0; i <= n; i++) {
-            long key = s[i];
+            long key = mod[i];
             int cnt = map.getOrDefault(key, 0);
             
             ans += cnt;
