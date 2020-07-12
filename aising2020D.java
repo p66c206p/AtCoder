@@ -81,6 +81,7 @@ public class Main {
             }
             // System.out.println(now);
             
+            // 後は普通に
             while (now > 0) {
                 int popcount = Integer.bitCount(now);
                 now %= popcount;
