@@ -2,18 +2,22 @@
         // ex. 3^10
         // 3^10 = 3^(0b1010)
         // = 3^8が1個 * 3^4が0個 * 3^2が1個 * 3^1が0個
+        // (次の桁の値は(前の桁)^2になる)
         
         long res = 1;
+        long digit = num;
+        
         while (n > 0) {
             long lsb = n & 1;
             if (lsb == 1) {
-                res *= num;
+                res *= digit;
                 res %= MOD;
             }
             
-            num *= num;
-            num %= MOD;
+            digit = digit * digit;
+            digit %= MOD;
             n = n >> 1;
         }
+        
         return res;
     }
