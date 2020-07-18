@@ -3,6 +3,6 @@ public static long nPkMOD(long n, long k, long mod) {
     for (long i = n; i > n - k; i--) {
         res = res * i % mod;
     }
-
+    
     return res;
 }
