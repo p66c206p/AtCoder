@@ -13,9 +13,8 @@ public class Main {
         
         COMinit();
         
-        long tmp = nCkMOD(1000000000, 10000000);
-        System.out.println(tmp);
-        
+        System.out.println(nCkMOD(1000000000, 10000000));
+        System.out.println(nPkMOD(10000000, 10000000));
     }
     
     // テーブルを作る前処理
@@ -34,6 +33,7 @@ public class Main {
         }
     }
     // 二項係数計算(1 ≦ n ≦ 10^9, 1 ≦ k ≦ 10^7 程度)
+    // nCk = n! / (k! * (n-k)!)
     public static long nCkMOD(int n, int k){
         if (n < k) return 0;
         if (n < 0 || k < 0) return 0;
@@ -45,6 +45,14 @@ public class Main {
         }
         
         return res;
+    }
+    
+    // 順列計算(1 ≦ k ≦ n ≦ 10^7 程度)
+    // nPk = n! / (n-k)!
+    public static long nPkMOD(int n, int k){
+        if (n < k) return 0;
+        if (n < 0 || k < 0) return 0;
+        return (fac[n] * finv[n - k]) % MOD;
     }
     
     public static long modpow(long a, long n) {
