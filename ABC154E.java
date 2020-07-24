@@ -13,8 +13,8 @@ public class Main {
         int[][][] dp = new int[n+1][m+1][2];
         dp[0][0][0] = 1;
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m + 1; j++) {
-            // m -> mの遷移もあるので「< m + 1」
+            for (int j = 0; j <= m; j++) {
+            // m -> mの遷移もあるので「<= m」
             // 配列からはみ出る場合は中のcontinueで抜ける
                 for (int k = 0; k < 2; k++) {
                     int nd = c[i] - '0';
