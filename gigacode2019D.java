@@ -33,7 +33,7 @@ public class Main {
         // for (long[] c : cumsum) System.out.println(Arrays.toString(c));
         
         // 計算
-        // 全探索(長方形のパターン)
+        // 全探索(長方形の角の4点)
         // ans: costが制約を満たす長方形の最大面積
         int ans = 0;
         for (int U = 0; U < h; U++) {
