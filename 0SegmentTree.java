@@ -7,6 +7,7 @@ public class Main {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        int q = sc.nextInt();
         
         SegmentTree<Long> seg = new SegmentTree<>(n, Long::sum, 0L);
         
@@ -15,7 +16,6 @@ public class Main {
             seg.update(i, sc.nextLong());
         }
         
-        int q = sc.nextInt();
         while (q-- > 0) {
             int type = sc.nextInt();
             
