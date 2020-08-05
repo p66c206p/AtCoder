@@ -10,7 +10,6 @@ public class Main {
         
         SegmentTree<Long> seg = new SegmentTree<>(n, Long::sum, 0L);
         
-        
         // 初期の配列を取得
         for (int i = 0; i < n; i++) {
             seg.update(i, sc.nextLong());
