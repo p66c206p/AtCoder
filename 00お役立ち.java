@@ -25,6 +25,15 @@ int 5 / int 3 = 1(a余りbならaが答え)(切り捨て)
 // 配列を並べて表示
 System.out.println(Arrays.toString(array));
 
+// 高速化(TLE回避用)
+// sc.nextInt();
+Integer.parseInt(sc.next());
+// System.out.println(ans[i]);
+import java.io.PrintWriter;
+PrintWriter out = new PrintWriter(System.out);
+out.println(ans[i]);
+out.flush(); 
+
 // ソート 昇順、降順
 // 配列
 Arrays.sort(array);
