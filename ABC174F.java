@@ -24,6 +24,9 @@ public class Main {
         // -> 同じ値同士に矢印"←"を張る(下のlast_app参照)
         // -> 区間内に矢印の先も元も入っているものを数えればOK
         
+        // この図がすべて:
+        // -> https://youtu.be/h0MGG8rxrYc?t=8175
+        
         // l, r: クエリの区間(0-indexed)
         int[] l = new int[q];
         int[] r = new int[q];
