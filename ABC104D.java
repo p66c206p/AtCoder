@@ -11,7 +11,7 @@ public class Main {
         int n = c.length;
         
         // ans:
-        // ???C?AB?C?CBAAB??のような文字列について、
+        // ???C?AB?C?CBAB??のような文字列について、
         // ?をA,B,Cに置き換えた全パターンについて、
         // c[i]=A,c[j]=B,c[k]=Cである(i<j<k)のパターン数
         
