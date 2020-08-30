@@ -107,6 +107,7 @@ map.put("北海道", 100);   // addではなくput
 map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
 map.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
 map.remove("北海道");
+map.clear();
 for (Integer key : map.keySet()) {
     int val = map.get(key);
 }
@@ -120,6 +121,10 @@ map.put(key, ++val);
 // }
 // TreeMap: 重複OKのTreeSet、キーがソート済のMap
 https://bit.ly/37G6Nat
+// .subMap(L, R) (区間[L,R)なので注意) (参照渡し)
+// 左辺はSortedMapでないとエラーが出る。
+SortedMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+SortedMap<Integer, Integer> submap = map.subMap(L, R+2);
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<Integer> que = new ArrayDeque<Integer>();
