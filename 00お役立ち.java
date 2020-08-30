@@ -95,9 +95,9 @@ Set<String> strSet = new HashSet<String>();
 strSet.add("北海道");
 strSet.remove("北海道");
 set.contains("foo");
-// TreeSet: 検索削除追加がO(logN)で出来るPriorityQueue (平衡二分探索木)
+// TreeSet: 検索削除追加がO(logN)で出来るソート済Set (平衡二分探索木)
 https://bit.ly/3c35u74
-// TreeMap: 重複OKのTreeSet
+// TreeMap: 重複OKのTreeSet、キーがソート済のMap
 https://bit.ly/37G6Nat
 
 // Map
@@ -118,6 +118,8 @@ map.put(key, ++val);
 //     int val = map.get(key);
 //     map.put(key, val + 1);
 // }
+// TreeMap: 重複OKのTreeSet、キーがソート済のMap
+https://bit.ly/37G6Nat
 
 // Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<Integer> que = new ArrayDeque<Integer>();
