@@ -5,7 +5,7 @@ public class Main {
     static long inv2 = 500000004;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         long[] array = new long[n];
