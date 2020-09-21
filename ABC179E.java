@@ -1,12 +1,9 @@
 import java.util.*;
 
 public class Main {
-    public static int MOD = 998244353;
-    
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
-        Random random = new Random();
         long n = sc.nextLong();
         int x = sc.nextInt();
         int m = sc.nextInt();
@@ -36,6 +33,7 @@ public class Main {
                 list.add(now);
             }
         }
+        // System.out.println(list.toString());
         
         int loop_idx = 0;
         for (int i = 0; i < list.size(); i++) {
