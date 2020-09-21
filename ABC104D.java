@@ -37,7 +37,7 @@ public class Main {
             if (chr == 'B' || chr == '?') {
                 // 選択する
                 dp[i+1][2] += dp[i][1];
-                dp[i+1][1] %= MOD;
+                dp[i+1][2] %= MOD;
                 // 選択しない
                 for (int j = 0; j < 4; j++) {
                     dp[i+1][j] += dp[i][j];
