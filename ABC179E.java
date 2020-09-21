@@ -22,9 +22,9 @@ public class Main {
         
         Set<Integer> set = new HashSet<Integer>();
         List<Integer> list = new ArrayList<Integer>();
-        set.add(x);
-        list.add(x);
         int now = x;
+        set.add(now;
+        list.add(now);
         int last = 0;
         for (long i = 0; i < n; i++) {
             now = (int)((long)now * now % m);
