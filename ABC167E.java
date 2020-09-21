@@ -14,9 +14,6 @@ public class Main {
         int m = sc.nextInt();
         int k = sc.nextInt();
         
-        int r = n - k;
-        int b = k;
-        
         COMinit();
         
         // ans_i: m色の玉をn個並べる時、隣り合う組で同じ色のものがi組あるパターン数
