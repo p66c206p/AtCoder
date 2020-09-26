@@ -10,25 +10,13 @@ public class Main {
         // Scanner sc = new Scanner(System.in);
         FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
-        int[] x = new int[n];
-        int[] y = new int[n];
-        for (int i = 0; i < n; i++) {
-            x[i] = sc.nextInt()-1;
-            y[i] = sc.nextInt()-1;
-        }
-        
-        int[][] array = new int[n][3];
-        for (int i = 0; i < n; i++) {
-            array[i][0] = x[i];
-            array[i][1] = y[i];
-            array[i][2] = i;
-        }
-        
         int[][] a = new int[n][3];
         for (int i = 0; i < n; i++) {
-            a[i][0] = array[i][0];
-            a[i][1] = array[i][1];
-            a[i][2] = array[i][2];
+            int x = sc.nextInt()-1;
+            int y = sc.nextInt()-1;
+            a[i][0] = x[i];
+            a[i][1] = y[i];
+            a[i][2] = i;
         }
         Arrays.sort(a, (ax, bx) -> Integer.compare(ax[0], bx[0]));
         
