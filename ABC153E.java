@@ -50,8 +50,9 @@ public class Main {
                     if (nj > V) continue;
                     
                     // 遷移:
-                    // ni行の0~j列まではbestが確定しているので、
-                    // もう1個アイテムを使うときの最善元は(ni,j)
+                    // (ni,j)から(ni,nj)へ遷移できること(個数制限なし)、
+                    // また、(ni,j)へ来る遷移は現時点で全て終わっているので
+                    // (ni,j)は、(ni,nj)のbestな遷移元である。
                     if (k == 0) {
                         dp[ni][nj] = Math.min(dp[ni][nj], dp[i][j] + plus);
                     } else {
