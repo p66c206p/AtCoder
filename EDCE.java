@@ -1,58 +1,58 @@
 import java.util.*;
 
 public class Main {
-    static long INF = 1001001001001001001L;
+    static long INF = (long)1e+18;
     
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int W = sc.nextInt();
-        int V = 0;
-        int[] weights = new int[n];
-        int[] values = new int[n];
+        int V = (int)Math.pow(10, 3) * n;
+        
+        int[][] array = new int[n][2];
         for (int i = 0; i < n; i++) {
-            weights[i] = sc.nextInt();
-            values[i] = sc.nextInt();
-            V += values[i];
+            int w = sc.nextInt();
+            int v = sc.nextInt();
+            array[i][0] = w;
+            array[i][1] = v;
         }
         
-        // dp[i][v]: 品物0~iまで考慮した上で、価値vでの最小重量
-        long[][] dp = new long[n + 1][V + 1];
+        // dp[i][j]: アイテムiまで見てきたときの、価値jの最小重量
+        long[][] dp = new long[n+1][V+1];
         // 初期化
-        for (int i = 0; i <= n; i++) {
-            for (int v = 0; v <= V; v++) {
-                dp[i][v] = INF;
-            }
+        for (long[] dps : dp) {
+            Arrays.fill(dps, INF);
         }
         dp[0][0] = 0;
         
-        // 考慮する品物を1つずつ増やして考える
         for (int i = 0; i < n; i++) {
-            for (int v = 0; v <= V; v++) {
-                // 品物iを選択できる(価値[i]がv以下)
-                if (v - values[i] >= 0) {
-                    // 選択できる場合、選択する方/しない方の最善を選ぶ
-                    // (選択するには品物i-1の価値[i]分少ないとこからなら遷移できる)
-                    dp[i + 1][v] = Math.min(dp[i][v - values[i]] + weights[i], dp[i][v]);
-                } else {
-                    // 選択できない場合、品物i-1の時と変わらない
-                    dp[i + 1][v] = dp[i][v];
+            int w = array[i][0];
+            int v = array[i][1];
+            for (int j = 0; j <= V; j++) {
+                for (int k = 0; k <= 1; k++) {
+                    // 状態jでアイテムiをk個使う
+                    int ni = i+1;
+                    int nj = j + v * k;
+                    long plus = w * k;
+                    
+                    // カットとかcontinue
+                    if (nj > V) continue;
+                    
+                    // 遷移
+                    dp[ni][nj] = Math.min(dp[ni][nj], dp[i][j] + plus);
                 }
             }
         }
-        // for (int i = 0; i < n+1; i++) {
-        //     System.out.println(Arrays.toString(dp[i]));
+        // for (long[] dps : dp) {
+        //     System.out.println(Arrays.toString(dps));
         // }
         
-        // ans: 品物nまでなめた時の、重量がW以下で最大の価値
-        int ans = 0;
-        for (int v = V; v >= 0; v--) {
-            if (dp[n][v] <= W) {
-                ans = v;
-                System.out.println(ans);
-                return;
-            }
+        // ans: dp[n][V]のうち重さがW以下のmax
+        long ans = 0;
+        for (int j = 0; j <= V; j++) {
+            if (dp[n][j] <= W) ans = Math.max(ans, j);
         }
+        System.out.println(ans);
     }
 }
