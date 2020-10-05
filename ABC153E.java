@@ -27,7 +27,7 @@ public class Main {
         dp[0][0] = 0;
         
         // 「アイテムiを1回使うと状態jの区間[0, v]はwになる」を先にしておく
-        // (下のdpを配るDPでやってるから)
+        // (下のdpで配れなくなるから)
         for (int i = 0; i < n; i++) {
             int v = array[i][0];
             int w = array[i][1];
