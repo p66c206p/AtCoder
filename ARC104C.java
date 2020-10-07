@@ -32,7 +32,6 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 2; j++) {
                 int floor = inout[i][j];
-                
                 if (floor == -1) continue;
                 
                 if (getid[floor] == -1) {
