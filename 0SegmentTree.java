@@ -96,4 +96,8 @@ class SegmentTree<T> {
     
     // Range Maximum Query
     // SegmentTree<Long> seg = new SegmentTree<>(n, Long::max, Long.MIN_VALUE);
+    
+    // Range Bitwise-OR Query
+    // BinaryOperator<Long> op = (num1, num2) -> (num1 | num2);
+    // SegmentTree<Long> seg = new SegmentTree<>(n, op, 0L);
 }
