@@ -102,6 +102,7 @@ https://bit.ly/37G6Nat
 
 // Map
 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
 Map<String, Integer> map = new LinkedHashMap<String, Integer>();   // 順番を保持できる
 map.put("北海道", 100);   // addではなくput
 map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
@@ -113,12 +114,11 @@ for (Integer key : map.keySet()) {
 }
 int val = map.getOrDefault(key, 0);
 map.put(key, ++val);
-// if (!map.containsKey(key)) {
-//     map.put(key, 1);
-// } else {
-//     int val = map.get(key);
-//     map.put(key, val + 1);
-// }
+if (val > 1) {
+    map.put(key, --val);
+} else {
+    map.remove(key);
+}
 // TreeMap: 重複OKのTreeSet、キーがソート済のMap
 https://bit.ly/37G6Nat
 // .subMap(L, R) (区間[L,R)なので注意) (参照渡し)
