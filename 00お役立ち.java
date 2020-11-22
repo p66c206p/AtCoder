@@ -126,7 +126,7 @@ https://bit.ly/37G6Nat
 SortedMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
 SortedMap<Integer, Integer> submap = map.subMap(L, R+2);
 
-// Queue (Dequeはdouble-ended-queue＝両端から取り出せる)
+// キュー (Dequeはdouble-ended-queue＝両端から取り出せる)
 Queue<Integer> que = new ArrayDeque<Integer>();
 Queue<int[]> que = new ArrayDeque<int[]>();
 que.add(new int[]{x, y});
@@ -134,10 +134,18 @@ int[] cur = que.poll(); // 出す
 int[] cur = que.peek(); // 見るだけ
 while (!que.isEmpty()) {}
 
+// スタック
+Deque<String> stack = new ArrayDeque<>();
+stack.push("add"); // 先頭(上)に追加
+stack.peek();      // 見るだけ
+stack.pop();       // 出す
+
+// Deque(両端から取り出せる)
 ArrayDeque<String> deq = new ArrayDeque<>();
 deq.offerFirst("sentou");
 deq.offerLast("matsubi");
 deq.pollFirst();
+deq.peekLast();
 
 // PriorityQueue(優先順位を持つキュー)
 // (常にソートされてなくても良いならListの方がgood)
