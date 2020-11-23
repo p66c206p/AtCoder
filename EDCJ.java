@@ -6,7 +6,7 @@ public class Main {
     static int n;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         
@@ -41,6 +41,7 @@ public class Main {
         
         // メモ済なら再帰不要
         if (already[i][j][k]) return dp[i][j][k];
+        already[i][j][k] = true;
         
         // 遷移:
         // (i,j,k) =
@@ -63,7 +64,6 @@ public class Main {
         res += (double)(n-i-j-k) / n / (1 - (double)(n-i-j-k) / n);
         
         // メモ化しながらリターン
-        already[i][j][k] = true;
         return dp[i][j][k] = res;
     }
 }
