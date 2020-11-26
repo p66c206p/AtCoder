@@ -6,7 +6,7 @@ public class Main {
     static int n;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         
