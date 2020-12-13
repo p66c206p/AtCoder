@@ -13,6 +13,7 @@ public class Main {
         System.out.println(ans);
     }
     
+    // 二項係数計算(1 ≦ k ≦ n ≦ 90000 程度)
     static BigInteger nCk(int n, int k) {
         BigInteger res = new BigInteger("1");
         for(int i = 0; i < k; i++) {
