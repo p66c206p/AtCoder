@@ -12,7 +12,9 @@ public class Main {
         int n = sc.nextInt();
         int q = sc.nextInt();
         
-        SegmentTree<Long> seg = new SegmentTree<>(n, Long::sum, 0L);
+        // Range XOR Query
+        BinaryOperator<Long> op = (num1, num2) -> (num1 ^ num2);
+        SegmentTree<Long> seg = new SegmentTree<>(n, op, 0L);
         
         // 初期の配列を取得
         for (int i = 0; i < n; i++) {
@@ -21,17 +23,17 @@ public class Main {
         
         List<Long> ans = new ArrayList<Long>();
         while (q-- > 0) {
-            int type = sc.nextInt();
+            int type = sc.nextInt()-1;
             
             if (type == 0) {
-                // 一点更新
+                // 一点更新 (0-indexed)
                 int p = sc.nextInt()-1;
                 long x = sc.nextInt();
                 
                 long now = seg.query(p, p+1);
-                seg.update(p, now + x);
+                seg.update(p, now ^ x);
             } else {
-                // 区間取得
+                // 区間取得 [l, r)
                 int l = sc.nextInt()-1;
                 int r = sc.nextInt();
                 long res = seg.query(l, r);
