@@ -8,16 +8,19 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         
-        System.out.println(nCk(n, k));
+        BigInteger ans = nCk(n, k);
+        // long ans = nCk(n, k).longValue();
+        System.out.println(ans);
     }
     
-    static long nCk(int n, int k) {
+    static BigInteger nCk(int n, int k) {
         BigInteger res = new BigInteger("1");
         for(int i = 0; i < k; i++) {
             res = res.multiply(BigInteger.valueOf(n-i));
             res = res.divide(BigInteger.valueOf(i+1));
+            // System.out.println(res);
         }
         
-        return res.longValue();
+        return res;
     }
 }
