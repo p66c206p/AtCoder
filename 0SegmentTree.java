@@ -1,11 +1,14 @@
 import java.util.*;
+import java.io.*;
+// import java.io.PrintWriter; 
 import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
+        FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
         
@@ -16,24 +19,91 @@ public class Main {
             seg.update(i, sc.nextLong());
         }
         
+        List<Long> ans = new ArrayList<Long>();
         while (q-- > 0) {
             int type = sc.nextInt();
             
             if (type == 0) {
-                // 一点加算
-                int p = sc.nextInt();
+                // 一点更新
+                int p = sc.nextInt()-1;
                 long x = sc.nextInt();
                 
                 long now = seg.query(p, p+1);
                 seg.update(p, now + x);
             } else {
                 // 区間取得
-                int l = sc.nextInt();
+                int l = sc.nextInt()-1;
                 int r = sc.nextInt();
                 long res = seg.query(l, r);
-                System.out.println(res);
+                ans.add(res);
             }
         }
+        
+        // 出力
+        PrintWriter out = new PrintWriter(System.out);
+        for (int i = 0; i < ans.size(); i++) {
+            out.println(ans.get(i));
+        }    
+        out.flush();
+    }
+    
+    static class FastScanner {
+        private BufferedReader reader = null;
+        private StringTokenizer tokenizer = null;
+        
+        public FastScanner(InputStream in) {
+            reader = new BufferedReader(new InputStreamReader(in));
+            tokenizer = null;
+        }
+        
+        public String next() {
+            if (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    tokenizer = new StringTokenizer(reader.readLine());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        
+        public String nextLine() {
+            if (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    return reader.readLine();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        
+            return tokenizer.nextToken("\n");
+        }
+        
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
+        
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+        
+        public double nextDouble() {
+             return Double.parseDouble(next());
+        }
+        
+        public int[] nextIntArray(int n) {
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+                a[i] = nextInt();
+            return a;
+        }
+        
+        public long[] nextLongArray(int n) {
+            long[] a = new long[n];
+            for (int i = 0; i < n; i++)
+                a[i] = nextLong();
+            return a;
+        } 
     }
 }
 
