@@ -15,14 +15,13 @@ public class Main {
             int cost = sc.nextInt();
             int kind = sc.nextInt();
             
-            // 集合s (bitで持つ)
-            // ex. {0,2,3} -> 0b1101 (0-indexed)
+            // 集合sを受け取る(bitで持つ)
+            // ex. 0b1101 = bit0,2,3が立ってる状態
             int s = 0;
             for (int j = 0; j < kind; j++) {
-                int digit = sc.nextInt() - 1;
-                
-                // digit桁目のbitを立てる
-                s |= 1<<digit;
+                int num = sc.nextInt()-1;
+                int bitX = 1 << num;
+                s |= bitX;
             }
             
             array[i][0] = cost;
@@ -38,14 +37,14 @@ public class Main {
         dp[0][0] = 0;
         
         for (int i = 0; i < m; i++) {
-            int c = array[i][0];
+            int cost = array[i][0];
             int s = array[i][1];
             for (int j = 0; j <= all; j++) {
                 for (int k = 0; k <= 1; k++) {
                     // 状態jでアイテムiをk個使う
                     int ni = i+1;
-                    int nj = j | s * k;
-                    long plus = c * k;
+                    int nj = j | (s * k);
+                    long plus = cost * k;
                     
                     // カットとかcontinue
                     
