@@ -31,7 +31,7 @@ public class Main {
                 long x = sc.nextInt();
                 
                 long now = seg.query(p, p+1);
-                seg.update(p, now ^ x);
+                seg.update(p, now + x);
             } else {
                 // 区間取得 [l, r)
                 int l = sc.nextInt()-1;
@@ -172,4 +172,5 @@ class SegmentTree<T> {
     // Range Bitwise-OR Query
     // BinaryOperator<Long> op = (num1, num2) -> (num1 | num2);
     // SegmentTree<Long> seg = new SegmentTree<>(n, op, 0L);
+    // ※update(p, now + x) -> update(p, now | x)にするのに注意
 }
