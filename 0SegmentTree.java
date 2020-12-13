@@ -172,5 +172,5 @@ class SegmentTree<T> {
     // Range Bitwise-OR Query
     // BinaryOperator<Long> op = (num1, num2) -> (num1 | num2);
     // SegmentTree<Long> seg = new SegmentTree<>(n, op, 0L);
-    // ※update(p, now + x) -> update(p, now | x)にするのに注意
+    // ※seg.update(p, now + x) -> seg.update(p, now | x)にするのに注意
 }
