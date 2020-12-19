@@ -1,14 +1,16 @@
 import java.util.*;
+import java.io.*;
+// import java.io.PrintWriter; 
 import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;
-import java.io.PrintWriter;
 
 public class Main {
     static int SIZE = 500001;
     
     public static void main(String[] args) throws Exception {
         // Your code here! 
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
+        FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
         int[] array = new int[n];
@@ -16,9 +18,9 @@ public class Main {
             array[i] = sc.nextInt();
         }
         
-        // ans[i]: 各クエリ[l, r]で、区間内の値の種類数
-        // -> ans = r - l + 1 - 重複する個数
-        // (重複する個数は矢印を張れば数えられる)
+        // ans[i]: 各区間クエリ[L, R]の、値の種類数
+        // -> ans = R-L+1 - 重複数
+        // (重複の個数は矢印を張れば数えられる)
         
         // 重複の数え方:
         // -> 同じ値同士に矢印"←"を張る(下のlast_app参照)
@@ -27,13 +29,6 @@ public class Main {
         // この図がすべて:
         // -> https://youtu.be/h0MGG8rxrYc?t=8175
         
-        // l, r: クエリの区間(0-indexed)
-        int[] l = new int[q];
-        int[] r = new int[q];
-        for (int i = 0; i < q; i++) {
-            l[i] = sc.nextInt() - 1;
-            r[i] = sc.nextInt() - 1;
-        }
         
         // queries[l]: 要素が{lに向かう矢印の元, 出力する順番}のリスト
         List<int[]>[] queries = new List[n];
@@ -41,7 +36,9 @@ public class Main {
             queries[i] = new ArrayList<int[]>();
         }
         for (int i = 0; i < q; i++) {
-            queries[l[i]].add(new int[]{r[i], i});
+            int L = sc.nextInt()-1;
+            int R = sc.nextInt()-1;
+            queries[L].add(new int[]{R, i});
         }
         
         // rights[l]: 「lに向かう矢印の元」の集合
@@ -51,6 +48,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             rights[i] = new ArrayList<Integer>();
         }
+        
         // last_app[i]: a[i]の値が、lastに出たidx
         // ex. { 1, 4, 1, 4, 2, 1, 3, 5, 6}
         // ->  {-1,-1, 0, 1,-1, 2,-1,-1,-1}
@@ -64,23 +62,27 @@ public class Main {
             last_app[num] = i;
         }
         
+        // bit: 右からx座標まで見た時のy座標の集合
         BIT bit = new BIT(SIZE);
         
-        // idxを右からなめていく
+        // ans: R-L+1 - 右下の点の数
         int[] ans = new int[q];
-        for (int i = n - 1; i >= 0; i--) {
-            // iに向けられた矢印を追加する
-            for (Integer right : rights[i]) {
-                bit.add(right, 1);
+        // ←方向になめていく
+        for (int x = n - 1; x >= 0; x--) {
+            // xに向けられた矢印を追加する
+            for (Integer y : rights[x]) {
+                bit.add(y, 1);
             }
             
             // 現在BITに入ってる矢印の中で、
             // 矢印の元がright以下のものが区間内の重複分。
-            for (int[] query : queries[i]) {
-                int left = i;
-                int right = query[0];
-                int q_idx = query[1];
-                ans[q_idx] = right - left + 1 - bit.sum(right);
+            for (int[] query : queries[x]) {
+                int L = x;
+                int R = query[0];
+                int idx = query[1];
+                
+                int daburi = bit.sum(R);
+                ans[idx] = R-L+1 - daburi;
             }
         }
       
@@ -89,9 +91,65 @@ public class Main {
             out.println(a);
         }
         out.flush();
-        // for (Integer a : ans) {      // System.out.printlnだとTLEした
-        //     System.out.println(a);
-        // }
+    }
+    
+    static class FastScanner {
+        private BufferedReader reader = null;
+        private StringTokenizer tokenizer = null;
+        
+        public FastScanner(InputStream in) {
+            reader = new BufferedReader(new InputStreamReader(in));
+            tokenizer = null;
+        }
+        
+        public String next() {
+            if (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    tokenizer = new StringTokenizer(reader.readLine());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        
+        public String nextLine() {
+            if (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    return reader.readLine();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        
+            return tokenizer.nextToken("\n");
+        }
+        
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
+        
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+        
+        public double nextDouble() {
+             return Double.parseDouble(next());
+        }
+        
+        public int[] nextIntArray(int n) {
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+                a[i] = nextInt();
+            return a;
+        }
+        
+        public long[] nextLongArray(int n) {
+            long[] a = new long[n];
+            for (int i = 0; i < n; i++)
+                a[i] = nextLong();
+            return a;
+        } 
     }
 }
 
