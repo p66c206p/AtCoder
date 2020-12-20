@@ -12,9 +12,8 @@ public class Main {
         int n = sc.nextInt();
         int q = sc.nextInt();
         
-        // Range XOR Query
-        BinaryOperator<Long> op = (num1, num2) -> (num1 ^ num2);
-        SegmentTree<Long> seg = new SegmentTree<>(n, op, 0L);
+        // Range Sum Query
+        SegmentTree<Long> seg = new SegmentTree<>(n, Long::sum, 0L);
         
         // 初期の配列を取得
         for (int i = 0; i < n; i++) {
@@ -77,7 +76,7 @@ public class Main {
                     throw new RuntimeException(e);
                 }
             }
-        
+            
             return tokenizer.nextToken("\n");
         }
         
