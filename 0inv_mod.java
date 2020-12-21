@@ -1,4 +1,6 @@
-	public static long inv_mod(long a, long mod) {
+    // 逆元 O(log m) (m = mod)
+    // ex. 2 -> 500000004
+    public static long inv_mod(long a, long mod) {
 		long b = mod;
 		long p = 1, q = 0;
 		while (b > 0) {
