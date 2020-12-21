@@ -28,7 +28,7 @@ public class Main {
             // まずgcd(k, -n)を求めて、「kx - ny = gcd(k, -n)」にする
             long g = gcd(k, -n);
             if (s % g != 0) {
-                // 割り切れない = 右辺を1にできない = 解なし
+                // 割り切れない = 席sは通らない = 解なし
                 System.out.println(-1);
                 continue;
             }
