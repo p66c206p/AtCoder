@@ -1,8 +1,8 @@
 import java.util.*;
-import java.util.Map.*;
 
 public class Main {
     static int MOD = 1000000007;
+    
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
@@ -12,41 +12,45 @@ public class Main {
             array[i] = sc.nextInt();
         }
         
-        Sieve sieve = new Sieve(1000000);
-        Map<Integer, Integer> factorMap = new HashMap<Integer, Integer>(); 
+        // ans:
+        // 数列の最小公倍数 / array[i]
         
+        // how:
+        // 1. LCMはオーバーフローするのでmapで持つ。
+        // 2. 割り算は逆元の掛け算にする。
+        
+        Sieve sieve = new Sieve(1000000);
+        
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            Map<Integer, Integer> map = sieve.factorMap(array[i]);
+            Map<Integer, Integer> now = sieve.factorMap(array[i]);
             
-            for (Entry<Integer, Integer> entry : map.entrySet()) {
-                int key = entry.getKey();
-                int val = entry.getValue();
+            for (Integer key : now.keySet()) {
+                int val = now.get(key);
                 
-                if (!factorMap.containsKey(key)) {
-                    factorMap.put(key, val);
-                } else {
-                    int exVal = factorMap.get(key);
-                    factorMap.put(key, Math.max(val, exVal));
-                }
+                int org_val = map.getOrDefault(key, 0);
+                map.put(key, Math.max(org_val, val));
             }
+            // System.out.println(map.toString());
         }
         
-        long lcm = 1;
-        for (Entry<Integer, Integer> entry : factorMap.entrySet()) {
-            int key = entry.getKey();
-            int val = entry.getValue();
+        long l = 1;
+        for (Integer key : map.keySet()) {
+            int val = map.get(key);
             
             while (val-- > 0) {
-                lcm = (lcm * key) % MOD;
+                l *= key;
+                l %= MOD;
             }
         }
+        // System.out.println(l);
         
-        long count = 0;
+        long ans = 0;
         for (int i = 0; i < n; i++) {
-            count = (count + (lcm * modinv(array[i], MOD) % MOD)) % MOD;
+            ans += l * modinv((int)array[i], MOD);
+            ans %= MOD;
         }
-        
-        System.out.println(count);
+        System.out.println(ans);
     }
     
     public static long modinv(long a, long m) {
@@ -108,7 +112,7 @@ class Sieve {
     
     // nの素因数のリスト (60 => [2, 2, 3, 5])
     List<Integer> factorList(int x) {
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
         
         while (x != 1) {
             res.add(minFactor[x]);
@@ -120,7 +124,7 @@ class Sieve {
     
     // nの素因数の頻度 (60 => (2 => 2, 3 => 1, 5 => 1)
     Map<Integer, Integer> factorMap(int x) {
-        Map<Integer, Integer> res = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> res = new HashMap<>();
         
         List<Integer> factorList = factorList(x);
         
