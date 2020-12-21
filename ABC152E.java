@@ -4,7 +4,7 @@ public class Main {
     static int MOD = 1000000007;
     
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] array = new int[n];
@@ -12,8 +12,7 @@ public class Main {
             array[i] = sc.nextInt();
         }
         
-        // ans:
-        // 数列の最小公倍数 / array[i]
+        // ans: Σ (数列の最小公倍数 / array[i])
         
         // how:
         // 1. LCMはオーバーフローするのでmapで持つ。
