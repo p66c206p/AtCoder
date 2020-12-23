@@ -71,15 +71,20 @@ public class Main {
                 String key = a + " " + b;
                 int val = maps.getOrDefault(key, 0);
                 maps.put(key, ++val);
-                val = mapt.getOrDefault(key, 0);
-                mapt.put(key, val);
             } else {
                 String key = b + " " + -a;
                 int val = mapt.getOrDefault(key, 0);
                 mapt.put(key, ++val);
-                val = maps.getOrDefault(key, 0);
-                maps.put(key, val);
             }
+        }
+        // System.out.println(maps.toString());
+        // System.out.println(mapt.toString());
+        
+        for (String key : maps.keySet()) {
+            if (!mapt.containsKey(key)) mapt.put(key, 0);
+        }
+        for (String key : mapt.keySet()) {
+            if (!maps.containsKey(key)) maps.put(key, 0);
         }
         // System.out.println(maps.toString());
         // System.out.println(mapt.toString());
@@ -99,10 +104,11 @@ public class Main {
             
             ans *= now;
             ans %= MOD;
+            System.out.println(ans);
         }
         ans += zero;
         ans %= MOD;
-        ans -= 1;
+        ans -= 1;   // 「1つも選ばない」を除外
         if (ans < 0) ans += MOD;
         System.out.println(ans);
     }
