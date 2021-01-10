@@ -26,8 +26,6 @@ public class Main {
             long start = n;
             long goal = 1;
             
-            // to: 隣接リスト(有向)
-            
             // dist: startからの最短距離
             // ！配列ではなくmapで持つ。
             // <- 状態数が10^18もあるから。
@@ -43,6 +41,11 @@ public class Main {
                 Point cur = que.poll();
                 long p = cur.name;
                 long dis = cur.dist;
+                
+                if (p == goal) {
+                    System.out.println(dis + d);
+                    break;
+                }
                 
                 // distより大きいdisを持つ点からは配らせない
                 if (dis > dist.getOrDefault(p, INF)) continue;
@@ -68,7 +71,7 @@ public class Main {
                 // 4. 5の倍数(上下)に移動し、/5の点へ移動
                 // -> 11(->10)->2, 11(->15)->3  (5の倍数までの距離*d + c)
                 
-                // -1のパターン
+                // ->goalのパターン
                 q = 1;
                 PtoQ = (p-1) * d;
                 // if (dis + PtoQ < dist.getOrDefault(q, INF)) {
@@ -149,7 +152,6 @@ public class Main {
                     }
                 }
             }
-            System.out.println(dist.get(goal) + d);
         }
     }
 }
