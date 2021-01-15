@@ -33,7 +33,7 @@ public class Main {
             }
         }
         
-        // dp[i]: 頂点iに至るまでの最安値(頂点iの値は含まない)
+        // dp[i]: 頂点iに至るまでの最小値(頂点iの値は含まない)
         long[] dp = new long[n];
         long INF = 10010010010010010L;
         Arrays.fill(dp, INF);
