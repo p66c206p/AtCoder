@@ -36,22 +36,18 @@ public class Main {
         //     sum[i + 1] += sum[i];
         // }
         
+        long ans = 0;
         long sum = 0;
-        long now = 0;
-        long last = 0;
+        long prev = 0;
         for (Long key : map.keySet()) {
             long val = map.get(key);
-            long len = key-last;
+            long len = key - prev;
             
-            if (now > cost) {
-                sum += cost * len;
-            } else {
-                sum += now * len;
-            }
+            ans += Math.min(cost, sum) * len;
             
-            now += val;
-            last = key;
+            sum += val;
+            prev = key;
         }
-        System.out.println(sum);
+        System.out.println(ans);
     }
 }
