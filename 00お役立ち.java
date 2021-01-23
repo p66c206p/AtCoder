@@ -4,7 +4,7 @@ http://bit.ly/39xTxFd // グラフ理論の用語説明
 https://bit.ly/3fJkmsU // Wolfram Alpha
 https://bit.ly/2ZCQ71m // 数列の公式を出してくれる(オンライン数列大辞典)
 
-// 計算量 (O(10^7)以下ならOK)
+// 計算量 (O(10^8)以下ならOK)
 10^5 -> O(NlogN)
 10^3 -> O(N^2)
 10^2 -> O(N^3)
