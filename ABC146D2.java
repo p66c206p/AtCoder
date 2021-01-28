@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     static List<Integer>[] to;
-    static int[] edge_idxes;
+    static Map<String, Integer> edge_idxes;
     static int[] colors;
     static int count;
     static int n;
@@ -14,7 +14,7 @@ public class Main {
         
         // to: 隣接リスト(無向)
         to = new List[n];
-        edge_idxes = new int[n];
+        edge_idxes = new HashMap<>();
         for (int i = 0; i < n; i++) {
             to[i] = new ArrayList<>();
         }
@@ -23,8 +23,9 @@ public class Main {
             int q = sc.nextInt() - 1;
             to[p].add(q);
             to[q].add(p);
-            edge_idxes[q] = i;
+            edge_idxes.put(p + " " + q, i);
         }
+        // System.out.println(edge_idxes.toString());
         
         // colors[i]: i番目の辺の値
         colors = new int[n-1];
@@ -44,7 +45,9 @@ public class Main {
             if (q == par) continue;
             
             if (color == val) color++;
-            colors[edge_idxes[q]] = color;
+            String edge = p + " " + q;
+            if (q < p) edge = q + " " + p;
+            colors[edge_idxes.get(edge)] = color;
             count = Math.max(count, color);
             
             dfs(q, color, p);
