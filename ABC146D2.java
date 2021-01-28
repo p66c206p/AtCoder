@@ -12,6 +12,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         
+        // ans:
+        // 根の辺から順に、親の辺と被らないように子の辺を塗ってください。
+        // (ただし、色の種類数は最小に抑える。)
+        
         // to: 隣接リスト(無向)
         to = new List[n];
         edge_idxes = new HashMap<>();
