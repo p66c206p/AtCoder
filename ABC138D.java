@@ -7,7 +7,7 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         
-        // ans: 木上で根から累積和をする。頂点iの値は？
+        // ans: 木上で根から累積和をとる。頂点iの値は？
         // how: 都度加算しながら、親から子へ値を配る。
         
         // to: 隣接リスト
