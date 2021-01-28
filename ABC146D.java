@@ -6,6 +6,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         
+        // ans:
+        // 根の辺から順に、親の辺と被らないように子の辺を塗ってください。
+        // (ただし、色の種類数は最小に抑える。)
+        
         // to: 隣接リスト(無向)
         List<Integer>[] to = new List[n];
         Map<String, Integer> edge_idxes = new HashMap<>();
