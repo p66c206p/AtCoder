@@ -10,7 +10,7 @@ public class Main {
         List<Integer>[] to = new List[n];
         Map<String, Integer> edge_idxes = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            to[i] = new ArrayList<Integer>();
+            to[i] = new ArrayList<>();
         }
         for (int i = 0; i < n - 1; i++) {
             int p = sc.nextInt() - 1;
@@ -28,8 +28,8 @@ public class Main {
         // count: colorsの種類数
         int[] colors = new int[n-1];
         int count = 0;
-        // 頂点0から順に、親から子へ初期値を配り最終値を求める
-        Queue<int[]> que = new ArrayDeque<int[]>();
+        // BFS: 根の辺から順に、親の辺と被らないように値を配る
+        Queue<int[]> que = new ArrayDeque<>();
         que.add(new int[]{0, 0});
         while (!que.isEmpty()) {
             int[] cur = que.poll();
