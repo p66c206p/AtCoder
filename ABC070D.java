@@ -10,6 +10,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         
+        // ans: 木で頂点x -> k -> yの最短距離を出力せよ。
+        // how: 頂点kから順に、辺の重みの累積和を取る。
+        
         // to: 隣接リスト(無向)
         to = new List[n];
         for (int i = 0; i < n; i++) {
