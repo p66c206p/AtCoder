@@ -7,51 +7,50 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         
+        // ans: 木上で根からimos法をする。頂点iの値は？
+        // how: 都度加算しながら、親から子へ値を配る。
+        
         // to: 隣接リスト
         List<Integer>[] to = new List[n];
         for (int i = 0; i < n; i++) {
-            to[i] = new ArrayList<Integer>();
+            to[i] = new ArrayList<>();
         }
         for (int i = 0; i < n - 1; i++) {
-            int s = sc.nextInt() - 1;
-            int t = sc.nextInt() - 1;
-            to[s].add(t);
-            to[t].add(s); 
+            int p = sc.nextInt() - 1;
+            int q = sc.nextInt() - 1;
+            to[p].add(q);
+            to[q].add(p);
         }
         
-        // first: 各点の初期値
-        int[] first = new int[n];
+        // sum: 各点の値
+        int[] sum = new int[n];
         for (int i = 0; i < k; i++) {
             int p = sc.nextInt() - 1;
-            int count = sc.nextInt();
-            first[p] += count;
+            int val = sc.nextInt();
+            sum[p] += val;
         }
         
         // visited: 当該点を既に通ったか否か 
         boolean[] visited = new boolean[n];
         visited[0] = true;
         
-        // last: 各点の最終値
-        int[] last = new int[n];
-        // 頂点0から順に、親から子へ初期値を配り最終値を求める
-        Queue<int[]> que = new ArrayDeque<int[]>();
-        que.add(new int[]{0, 0});
+        // BFS: 根から順に、子へ値を配る
+        Queue<Integer> que = new ArrayDeque<>();
+        que.add(0);
         while (!que.isEmpty()) {
-            int[] cur = que.poll();
-            int p = cur[0];
-            int count = cur[1] + first[p];
-            last[p] = count;
+            int p = que.poll();
             
             for (Integer q : to[p]) {
-                if (!visited[q]) {
-                    que.add(new int[]{q, count});
-                    visited[q] = true;
-                }
+                if (visited[q]) continue;
+                visited[q] = true;
+                
+                sum[q] += sum[p];
+                que.add(q);
             }
         }
         
         for (int i = 0; i < n; i++) {
-            System.out.print(last[i]);
+            System.out.print(sum[i]);
             if (i != n - 1) {
                 System.out.print(" ");
             } else {
