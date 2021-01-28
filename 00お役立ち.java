@@ -79,7 +79,7 @@ set.contains("foo");
 map.containsKey("foo");
 
 // List
-List<String> strList = new ArrayList<String>();
+List<String> strList = new ArrayList<>();
 strList.add("北海道");
 strList.set(0, "東京");
 strList.get(0); //get(index)なので、List<Integer>は使えない
@@ -91,7 +91,7 @@ for (int i = 0; i < n; i++) {
 }
 
 // Set
-Set<String> strSet = new HashSet<String>();
+Set<String> strSet = new HashSet<>();
 strSet.add("北海道");
 strSet.remove("北海道");
 set.contains("foo");
@@ -101,9 +101,9 @@ https://bit.ly/3c35u74
 https://bit.ly/37G6Nat
 
 // Map
-Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
-Map<String, Integer> map = new LinkedHashMap<String, Integer>();   // 順番を保持できる
+Map<Integer, Integer> map = new HashMap<>();
+TreeMap<Integer, Integer> map = new TreeMap<>();
+Map<String, Integer> map = new LinkedHashMap<>();   // 順番を保持できる
 map.put("北海道", 100);   // addではなくput
 map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
 map.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
@@ -123,12 +123,12 @@ if (val > 1) {
 https://bit.ly/37G6Nat
 // .subMap(L, R) (区間[L,R)なので注意) (参照渡し)
 // 左辺はSortedMapでないとエラーが出る。
-SortedMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+SortedMap<Integer, Integer> map = new TreeMap<>();
 SortedMap<Integer, Integer> submap = map.subMap(L, R+2);
 
 // キュー (Dequeはdouble-ended-queue＝両端から取り出せる)
-Queue<Integer> que = new ArrayDeque<Integer>();
-Queue<int[]> que = new ArrayDeque<int[]>();
+Queue<Integer> que = new ArrayDeque<>();
+Queue<int[]> que = new ArrayDeque<>();
 que.add(new int[]{x, y});
 int[] cur = que.poll(); // 出す
 int[] cur = que.peek(); // 見るだけ
