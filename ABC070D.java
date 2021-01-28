@@ -29,12 +29,12 @@ public class Main {
         dist = new long[n];
         dfs(k, 0, -1);
         
-        // p→k→qの最短距離を出力
+        // x→k→yの最短距離を出力
         while (query-- > 0) {
-            int p = sc.nextInt() - 1;
-            int q = sc.nextInt() - 1;
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
             
-            System.out.println(dist[p] + dist[q]);
+            System.out.println(dist[x] + dist[y]);
         }
     }
     
