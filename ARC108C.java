@@ -10,7 +10,7 @@ public class Main {
         // to: 隣接リスト
         List<int[]>[] to = new List[n];
         for (int i = 0; i < n; i++) {
-            to[i] = new ArrayList<int[]>();
+            to[i] = new ArrayList<>();
         }
         for (int i = 0; i < m; i++) {
             int s = sc.nextInt() - 1;
@@ -24,12 +24,14 @@ public class Main {
         // 条件: 辺の色が一方の点の色とだけ一致する
         // ex. 辺の色 = 1 -> (p, q) = (1, 8)
         
-        // color[i]: 頂点[i]の色
-        int[] color = new int[n];
-        Arrays.fill(color, -1);
-        color[0] = 0;
+        // colors[i]: 頂点[i]の色
+        int[] colors = new int[n];
+        Arrays.fill(colors, -1);
+        colors[0] = 0;
         
-        // 根から順に、頂点に値を配る
+        // BFS: グラフからBFSで全域木をたどる
+        // 頂点pが辺の色なら、頂点qは辺と異なる色に、
+        // 頂点qが辺と異なる色なら、頂点qは辺の色にする。
         Queue<Integer> que = new ArrayDeque<Integer>();
         que.add(0);
         while (!que.isEmpty()) {
@@ -39,11 +41,11 @@ public class Main {
                 int q = qData[0];
                 int e_color = qData[1];
                 
-                if (color[q] == -1) {
-                    if (color[p] == e_color) {
-                        color[q] = (e_color + 1) % n;
+                if (colors[q] == -1) {
+                    if (colors[p] == e_color) {
+                        colors[q] = (e_color + 1) % n;
                     } else {
-                        color[q] = e_color;
+                        colors[q] = e_color;
                     }
                     
                     que.add(q);
@@ -51,8 +53,8 @@ public class Main {
             }
         }
         
-        for (int i = 0; i < n; i++) {
-            System.out.println(color[i]+1);
+        for (int color : colors) {
+            System.out.println(color+1);
         }
     }
 }
