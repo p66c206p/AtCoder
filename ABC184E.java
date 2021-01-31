@@ -58,7 +58,7 @@ public class Main {
         int[] dx = new int[]{1, 0, -1, 0};
         int[] dy = new int[]{0, 1, 0, -1};
         
-        // BFS: (S -> Gまでの最短経路の深さ)
+        // BFS: (S(x,y) -> G(x,y)までの最短経路の深さ)
         Queue<int[]> que = new ArrayDeque<int[]>();
         que.add(new int[]{sx, sy, 0});
         while (!que.isEmpty()) {
