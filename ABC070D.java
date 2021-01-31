@@ -10,9 +10,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         
-        // ans: 木で頂点x -> k -> yの最短距離を出力せよ。
-        // how: 頂点kから順に、辺の重みの累積和を取る。
-        
         // to: 隣接リスト(無向)
         to = new List[n];
         for (int i = 0; i < n; i++) {
@@ -26,10 +23,15 @@ public class Main {
             to[q].add(new int[]{p, dis});
         }
         
-        // dist[i]: kからiへの最短距離
+        // ans: 木で頂点x -> k -> yの最短距離を出力せよ。
+        // how: 頂点kから順に、辺の重みの累積和を取る。
+        
         int query = sc.nextInt();
         int k = sc.nextInt() - 1;
+        
+        // dist[i]: kからiへの最短距離
         dist = new long[n];
+        
         dfs(k, 0, -1);
         
         // x→k→yの最短距離を出力
@@ -41,7 +43,7 @@ public class Main {
         }
     }
     
-    // 子qに、「pまでの距離+qへの距離」を配る
+    // DFS: 頂点kからの距離を求める
     public static void dfs(int p, long d, int par) {
         dist[p] = d;
         
