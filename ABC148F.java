@@ -44,7 +44,6 @@ public class Main {
         int max = -1;
         for (int i = 0; i < n; i++) {
             if (distU[i] < distV[i]) {
-                System.out.println(i + " " + distU[i] + " " + distV[i]);
                 max = Math.max(max, distV[i]);
             }
         }
