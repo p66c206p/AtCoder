@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Main {
@@ -11,10 +12,6 @@ public class Main {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        
-        // ans:
-        // 根の辺から順に、親の辺と被らないように子の辺を塗ってください。
-        // (ただし、色の種類数は最小に抑える。)
         
         // to: 隣接リスト(無向)
         to = new List[n];
@@ -30,6 +27,10 @@ public class Main {
             edge_idxes.put(p + " " + q, i);
         }
         // System.out.println(edge_idxes.toString());
+
+        // ans:
+        // 根の辺から順に、親の辺と被らないように子の辺を塗ってください。
+        // (ただし、色の種類数は最小に抑える。)
         
         // colors[i]: i番目の辺の値
         colors = new int[n-1];
@@ -42,7 +43,7 @@ public class Main {
         }
     }
     
-    // dfs: 上の辺と被らないように、下の辺に値を配る(辺は点で管理)
+    // DFS: 上の辺と被らないように、下の辺に値を配る(DFSは点で管理)
     public static void dfs(int p, int val, int par) {
         int color = 1;
         for (Integer q : to[p]) {
