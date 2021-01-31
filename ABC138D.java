@@ -7,9 +7,6 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         
-        // ans: 木上で根から、頂点の値の累積和をとる。頂点iの値は？
-        // how: 都度加算しながら、親から子へ値を配る。
-        
         // to: 隣接リスト
         List<Integer>[] to = new List[n];
         for (int i = 0; i < n; i++) {
@@ -21,6 +18,9 @@ public class Main {
             to[p].add(q);
             to[q].add(p);
         }
+        
+        // ans: 木上で根から、頂点の値の累積和をとる。頂点iの値は？
+        // how: 都度加算しながら、親から子へ値を配る。
         
         // sum: 各点の値
         int[] sum = new int[n];
