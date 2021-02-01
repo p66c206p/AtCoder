@@ -7,27 +7,28 @@ public class Main {
         // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[][] array = new int[n][3];
+        int[] x = new int[n];
+        int[] y = new int[n];
+        int[] z = new int[n];
         for (int i = 0; i < n; i++) {
-            array[i][0] = sc.nextInt();
-            array[i][1] = sc.nextInt();
-            array[i][2] = sc.nextInt();
+            x[i] = sc.nextInt();
+            y[i] = sc.nextInt();
+            z[i] = sc.nextInt();
         }
         
         // ans: 巡回セールスマン問題
-        // 頂点0からスタートし、全ての頂点を1度だけ通り、頂点0に帰る時の最小コスト
+        // 条件: (頂点0からスタート, 始点に戻る)
         
         // cost[i][j]: 頂点i -> jへのコスト
         int[][] cost = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i == j) continue;
-                int a = array[i][0];
-                int b = array[i][1];
-                int c = array[i][2];
-                int p = array[j][0];
-                int q = array[j][1];
-                int r = array[j][2];
+                int a = x[i];
+                int b = y[i];
+                int c = z[i];
+                int p = x[j];
+                int q = y[j];
+                int r = z[j];
                 
                 cost[i][j] = Math.abs(p-a)+Math.abs(q-b)+Math.max(0,r-c);
             }
@@ -41,9 +42,11 @@ public class Main {
         for (long[] dps : dp) {
             Arrays.fill(dps, INF);
         }
-        dp[0][0] = 0;
         
-        for (int i = 0; i <= all; i++) {
+        // 始点: 頂点0のみ
+        dp[1 << 0][0] = 0;
+        
+        for (int i = 1; i <= all; i++) {
             for (int j = 0; j < n; j++) {
                 for (int k = 0; k < n; k++) {
                     // 状態i,jで(i | k)へ遷移する
@@ -59,6 +62,10 @@ public class Main {
         //     System.out.println(Arrays.toString(dps));
         // }
         
-        System.out.println(dp[all][0]);
+        long ans = INF;
+        for (int i = 0; i < n; i++) {
+            ans = Math.min(ans, dp[all][i] + cost[i][0]);
+        }
+        System.out.println(ans);
     }
 }
