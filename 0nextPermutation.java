@@ -4,11 +4,14 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
-        int n = 4;
+        int n = sc.nextInt();
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
-            array[i] = i;
+            // array[i] = i;
+            // array[i] = sc.nextInt();
         }
+        // ソートされてないと全探索不能
+        Arrays.sort(array);
         
         // 順列全探索
         do {
