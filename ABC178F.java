@@ -6,17 +6,24 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] a = new int[n];
-        int[] b = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
+        int[] b = new int[n];
         for (int i = 0; i < n; i++) {
             b[i] = sc.nextInt();
         }
-        // Arrays.sort(a);
-        // Arrays.sort(b);
         
-        boolean ok = true;
+        // ans:
+        // すべてのiについて、a[i] != b[(i+offset)&n]
+        // となるoffsetがあれば出力せよ。
+        
+        // ex.
+        // {1,1,1,2,2,3} {1,1,1,2,2,3}
+        // -> offset = 3;
+        
+        // a, b併せての最頻値がnより大きい場合、
+        // offsetがいくつでもNG
         int max = 0;
         int[] count = new int[200001];
         for (int i = 0; i < n; i++) {
@@ -26,55 +33,58 @@ public class Main {
         for (int i = 0; i < 200001; i++) {
             max = Math.max(max, count[i]);
         }
-        if (max > n) ok = false;
-        
-        if (!ok) {
+        if (max > n) {
             System.out.println("No");
             return;
         }
         
-        // offset(0からn-1まで)を全て試す
-        int[] ans = new int[n];
-        int offset = 0;
-        while (true) {
+        // offsetを枝刈り全探索
+        for (int offset = 0; offset < n; offset++) {
+            boolean ok = true;
             for (int i = 0; i < n; i++) {
-                ans[(i+offset)%n] = b[i];
-            }
-            
-            // ng_length:
-            // ex. 2のとき、offset+1も+2もNGなので+3まで飛んでもらう
-            boolean ok2 = true;
-            int ng_length = 0;
-            for (int i = 0; i < n; i++) {
-                if (ans[i] == a[i]) {
+                boolean ok2 = true;
+                if (a[i] == b[(i+offset)%n]) {
                     ok2 = false;
                     
-                    int now = a[i];
-                    for (int j = i+1; j < n; j++) {
-                        if (a[j] == now) {
-                            ng_length++;
+                    // daburi: 
+                    // ダブリが3個あるならoffset+=2して、
+                    // 次のループで+3からスタートしてもらう
+                    int daburi = 0;
+                    int old = offset;
+                    for (int j = 0; j < n; j++) {
+                        if (a[i] == b[(i+offset+j)%n]) {
+                            daburi++;
                         } else {
+                            offset += daburi-1;
+                            offset %= n;
+                            
+                            // 一周したらもうお手上げ
+                            if (offset < old) {
+                                System.out.println("No");
+                                return;
+                            }
                             break;
                         }
                     }
+                } else {
+                    
+                }
+                
+                if (!ok2) {
+                    ok = false;
                     break;
                 }
             }
             
-            if (ok2) {
-                break;
-            } else {
-                offset += 1 + ng_length;
-            }
-        }
-        
-        System.out.println("Yes");
-        for (int i = 0; i < n; i++) {
-            System.out.print(ans[i]);
-            if (i != n-1) {
-                System.out.print(" ");
-            } else {
-                System.out.println();
+            if (ok) { 
+                System.out.println("Yes");
+                for (int i = 0; i < n; i++) {
+                    System.out.print(b[(i+offset) % n]);
+                    if (i != n-1) System.out.print(" ");
+                    else System.out.println();
+                }
+                
+                return;
             }
         }
     }
