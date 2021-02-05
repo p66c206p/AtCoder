@@ -1,5 +1,6 @@
 // ショートカット
 http://bit.ly/2Tu7y0Q // Javaで競技プログラミングをするときによく使う標準ライブラリ
+https://bit.ly/3pSIYVc // 上のC++版
 http://bit.ly/39xTxFd // グラフ理論の用語説明
 https://bit.ly/3fJkmsU // Wolfram Alpha
 https://bit.ly/2ZCQ71m // 数列の公式を出してくれる(オンライン数列大辞典)
