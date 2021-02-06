@@ -7,12 +7,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
         Scanner sc = new Scanner(System.in);
-        String sx = sc.next();
-        String sy = sc.next();
-        String sr = sc.next();
-        long x = getaLong(sx, geta);
-        long y = getaLong(sy, geta);
-        long r = getaLong(sr, geta);
+        long x = getaLong(sc.next(), geta);
+        long y = getaLong(sc.next(), geta);
+        long r = getaLong(sc.next(), geta);
         // System.out.println(x);
         // System.out.println(y);
         // System.out.println(r);
