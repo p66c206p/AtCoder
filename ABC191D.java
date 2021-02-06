@@ -47,6 +47,7 @@ public class Main {
         return num.multiply(geta).longValue();
     }
     
+    // √2 -> 1, √3 -> 1, √4 -> 2
     public static long longSqrt(long n) {
         long x = n;
         long y = (n+1) / 2;
