@@ -6,6 +6,9 @@ using namespace std;
 #define vi vector<int>
 #define sort(v) sort(v.begin(), v.end())
 
+int n, k;
+string s;
+
 int main(void){
     
 }
