@@ -7,8 +7,6 @@ public class Main {
         // Your code here! 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int start = 0;
-        int goal = n;
         
         // ans: 点0から点nに行くまでの最小コスト
         // 可能な操作: 点p -> 点q (移動コスト)
@@ -16,8 +14,16 @@ public class Main {
         // 2. n -> n+6^i    (1) (ex. 0 -> 6, 36, 216, ...)
         // 3. n -> n+9^i    (1) (ex. 0 -> 9, 81, 729, ...)
         
-        // to: 隣接リスト(有向)
+        // ダイクストラ法 O((N+M)logM)
+        // 使用条件: (辺の重さバラバラ, 辺の重さが負でない)
+        int[] dist = dijkstra(n, 0);
         
+        long ans = dist[n];
+        if (ans == INF) ans = -1;
+        System.out.println(ans);
+    }
+    
+    public static int[] dijkstra(int n, int start) {
         // dist: startからの最短距離
         int[] dist = new int[n+1];
         Arrays.fill(dist, INF);
@@ -71,7 +77,8 @@ public class Main {
                 }
             }
         }
-        System.out.println(dist[goal]);
+        
+        return dist;
     }
 }
     
