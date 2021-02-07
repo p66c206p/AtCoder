@@ -8,13 +8,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int start = sc.nextInt() - 1;
-        int goal = sc.nextInt() - 1;
         
-        to: 隣接リスト(有向)
+        // to: 隣接リスト(有向)
         List<int[]>[] to = new List[n];
         for (int i = 0; i < n; i++) {
-            to[i] = new ArrayList<int[]>();
+            to[i] = new ArrayList<>();
         }
         for (int i = 0; i < m; i++) {
             int p = sc.nextInt() - 1;
@@ -23,8 +21,18 @@ public class Main {
             to[p].add(new int[]{q, dis});
         }
         
+        // ダイクストラ法 O((N+M)logM)
+        // 使用条件: (辺の重さバラバラ, 辺の重さが負でない)
+        int[] dist = dijkstra(to, start);
+        
+        long ans = dist[goal];
+        if (ans == INF) ans = -1;
+        System.out.println(ans);
+    }
+    
+    public static int[] dijkstra(List<int[]>[] to, int start) {
         // dist: startからの最短距離
-        int[] dist = new int[n];
+        int[] dist = new int[to.length];
         Arrays.fill(dist, INF);
         dist[start] = 0;
         
@@ -55,7 +63,8 @@ public class Main {
                 }
             }
         }
-        System.out.println(dist[goal]);
+        
+        return dist;
     }
 }
     
