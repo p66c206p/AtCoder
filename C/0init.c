@@ -7,7 +7,7 @@ typedef long long ll;
 #define print(x) cout << (x) << endl
 #define vi vector<int>
 #define vvi vector<vi>
-#define all(v) v.begin(),v.end()
+#define all(v) (v).begin(),(v).end()
 #define YN(ok) print(ok ? "YES" : "NO")
 #define yn(ok) print(ok ? "YES" : "NO")
 
