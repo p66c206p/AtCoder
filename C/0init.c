@@ -7,8 +7,8 @@ typedef long long ll;
 #define vi vector<int>
 #define vvi vector<vi>
 #define all(v) (v).begin(),(v).end()
-#define YN(ok) print(ok ? "YES" : "NO")
-#define yn(ok) print(ok ? "Yes" : "No")
+#define YN(ok) print((ok ? "YES" : "NO"))
+#define yn(ok) print((ok ? "Yes" : "No"))
 #define decimal(n) setprecision(12) << n
 
 int n, k;
