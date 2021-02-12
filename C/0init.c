@@ -11,6 +11,8 @@ typedef long long ll;
 #define yn(ok) print((ok ? "Yes" : "No"))
 #define decimal(n) setprecision(12) << n
 
+#define Arrays_toString(v) rep(o,(v).size()){cout<<v[o]<<", ";if(o==(v).size()-1){cout<<endl;}}
+
 int n, k;
 string s;
 
