@@ -15,9 +15,6 @@ typedef pair<int, int> P;
 #define Arrays_toString(v) rep(o,(v).size()){cout<<v[o]<<", ";if(o==(v).size()-1){cout<<endl;}}
 template<class T> void que_toString(queue<T> q){while(q.size()){cout<<q.front()<<", ";q.pop();if(q.empty()){cout<<endl;}}}
 
-int n, k;
-string s;
-
 int main(void){
     
 }
