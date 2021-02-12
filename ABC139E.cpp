@@ -51,15 +51,13 @@ int main(void){
     
     // match: 現在実施可能な試合の集合
     vector<P> match;
-    rep(i, n) {
-        check(i, choice, match);
-    }
+    rep(i, n) check(i, choice, match);
     
     int day = 0;
     while (match.size() > 0) {
         day++;
         
-        // match内の重複を削除
+        // vector内の重複を削除
         sort(all(match));
         match.erase(unique(all(match)), match.end());
         
