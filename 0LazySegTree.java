@@ -206,5 +206,6 @@ class LazySegTree<T, M> {
     // LazySegTree<Long, Long> seg = new LazySegTree<>(n, Long::max, Long::max, Long::max, Long.MIN_VALUE, Long.MIN_VALUE);
     
     // Range XOR Query
-    // BinaryOperator<Long> op = (num1, num2) -> (num1 ^ num2);
+    // BinaryOperator<Integer> op = (num1, num2) -> (num1 ^ num2);
+    // LazySegTree<Integer, Integer> seg = new LazySegTree<>(n, op, op, op, 0, 0);
 }
