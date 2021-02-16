@@ -4,14 +4,14 @@ import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
         
-        // Range Sum Query
-        LazySegTree<F, Integer> seg = new LazySegTree<>(n, (v1, v2) -> new F(v1.val+v2.val, v1.size+v2.size), (m1, m2) -> m2, (dat, lazy) -> new F(lazy*dat.size, dat.size), new F(0,0), 0);
-    
+        // Range Sum Query (区間加算の方(区間更新じゃなく))
+        LazySegTree<F, Integer> seg = new LazySegTree<>(n, (v1, v2) -> new F(v1.val+v2.val, v1.size+v2.size), Integer::sum, (dat, lazy) -> new F(dat.val+lazy*dat.size, dat.size), new F(0,0), 0);
+        
         // 初期の配列を取得
         for (int i = 0; i < n; i++) {
             seg.set(i, new F(0, 1));
