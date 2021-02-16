@@ -4,7 +4,7 @@ import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
