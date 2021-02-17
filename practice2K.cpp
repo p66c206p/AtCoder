@@ -71,7 +71,7 @@ int main(void){
         int num; cin >> num;
         v[i] = S{num, 1};
     }
-
+	
     lazy_segtree<S, op, e, F, mapping, composition, id> seg(v);
     
     while (q-- > 0) {
