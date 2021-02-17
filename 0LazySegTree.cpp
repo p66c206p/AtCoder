@@ -63,12 +63,14 @@ F id(){
 int main(void){
     int n, q;
     cin >> n >> q;
+    
+    // 初期の配列を取得
     vector<S> v(n);
     rep(i, n) {
         int num; cin >> num;
         v[i] = S{num, 1};
     }
-
+    
     lazy_segtree<S, op, e, F, mapping, composition, id> seg(v);
     
     while (q-- > 0) {
