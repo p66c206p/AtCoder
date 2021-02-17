@@ -1,3 +1,5 @@
+// TLEしない人の実装
+// https://atcoder.jp/contests/abl/submissions/18176104
 import java.util.*;
 import java.io.*;
 import java.util.function.*;
