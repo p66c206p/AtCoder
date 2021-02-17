@@ -18,6 +18,7 @@ template<class T> void que_toString(queue<T> q){while(q.size()){cout<<q.front()<
 #include <atcoder/all>
 using namespace atcoder;
 using mint = modint998244353;
+// using mint = modint1000000007;
 
 // dat
 struct S{
@@ -50,7 +51,7 @@ S mapping(F f, S s){
 
 
 // 二項演算子(lazy vs lazy)
-// 引数の順番に注意
+// 引数の順番に注意(m1,m2の順に処理)
 F composition(F m2, F m1){
     return F{(m2.b * m1.b), (m2.b * m1.c + m2.c)};
 }
@@ -70,7 +71,7 @@ int main(void){
         int num; cin >> num;
         v[i] = S{num, 1};
     }
-    
+	
     lazy_segtree<S, op, e, F, mapping, composition, id> seg(v);
     
     while (q-- > 0) {
