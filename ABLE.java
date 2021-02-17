@@ -1,5 +1,6 @@
 // TLEしない人の実装
-// https://atcoder.jp/contests/abl/submissions/18176104
+// https://atcoder.jp/contests/abl/submissions/18176104 (Java)
+// https://atcoder.jp/contests/abl/submissions/17016942 (C++)
 import java.util.*;
 import java.io.*;
 import java.util.function.*;
