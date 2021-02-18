@@ -79,9 +79,9 @@ int main(void){
         int type; cin >> type;
         if (type == 0) {
             // 区間更新 (0-indexed)
-            int l, r, b, c;
-            cin >> l >> r >> b >> c;
-            seg.apply(l, r, F{b, c});
+            int l, r, x;
+            cin >> l >> r >> x;
+            seg.apply(l, r, x);
         } else {
             // 区間取得 [l, r)
             int l, r;
