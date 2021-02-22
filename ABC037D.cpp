@@ -73,7 +73,7 @@ int main(void){
     
     // que: 自分以前は全て処理された(確定した)頂点の集合
     queue<int> que;
-    rep(i, n) {
+    for (int i = 0; i < n; i++) {
         if (from[i].size() == 0) que.push(i);
     }
     
