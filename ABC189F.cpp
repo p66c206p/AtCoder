@@ -11,6 +11,7 @@ typedef pair<int, int> P;
 #define YN(ok) print((ok ? "YES" : "NO"))
 #define yn(ok) print((ok ? "Yes" : "No"))
 #define decimal(n) setprecision(30) << n
+const double eps = 1e-9;
 
 #define Arrays_toString(v) rep(o,(v).size()){cout<<v[o]<<", ";if(o==(v).size()-1){cout<<endl;}}
 template<class T> void que_toString(queue<T> q){while(q.size()){cout<<q.front()<<", ";q.pop();if(q.empty()){cout<<endl;}}}
@@ -51,6 +52,7 @@ int main(void){
     }
     
     for (int i = n-1; i >= 0; i--) {
+        // 
         if (dp[i][0] != 1) {
             dp[i][0] = sum[0] / m;
             dp[i][1] = sum[1] / m + 1;
@@ -65,9 +67,8 @@ int main(void){
     // for (auto dpi : dp) Arrays_toString(dpi);
     
     // x = dp[0][0] * x + dp[0][1]
-    // -> x = dp[0][1] / (1 - dp[0][0])
-    double res = -1; 
-    if (dp[0][0] != 1) res = dp[0][1] / (1 - dp[0][0]);
-    if (res > 1e12) res = -1;
+    // -> dp[0][1] / (1 - dp[0][0]) = x
+    double res = -1;
+    if (abs(1 - dp[0][0]) > eps) res = dp[0][1] / (1 - dp[0][0]);
     print(decimal(res));
 }
