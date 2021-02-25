@@ -49,7 +49,6 @@ int main(void){
                     if (k == 0 && d < nd) nk = 1;
                     
                     dp[ni][nj][nk] += dp[i][j][k];
-                    
                 }
             }
         }
