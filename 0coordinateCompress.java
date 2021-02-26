@@ -1,6 +1,6 @@
     // 座標圧縮
-    // ex. 8, 100, 33, 12, 6, 1211
-    // ->  1, 4, 3, 2, 0, 5
+    // ex. 8, 33, 33, 12, 6, 1211
+    // ->  1, 3, 3, 2, 0, 4
     public static int[] coordinateCompress(int[] array) {
         int n = array.length;
         int[][] a = new int[n][3];
