@@ -1,13 +1,10 @@
 import java.util.*;
 import java.io.*;
-// import java.io.PrintWriter; 
-import java.util.function.BinaryOperator;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
-        // Scanner sc = new Scanner(System.in);
         FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
