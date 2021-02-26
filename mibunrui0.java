@@ -1,13 +1,10 @@
 import java.util.*;
-import java.util.function.BinaryOperator;
-import java.util.function.UnaryOperator;
 import java.io.*;
-// import java.io.PrintWriter;
+import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         // Your code here!
-        // Scanner sc = new Scanner(System.in);
         FastScanner sc = new FastScanner(System.in);
         int n = sc.nextInt();
         int[][] a = new int[n][3];
@@ -29,7 +26,7 @@ public class Main {
             seg.update(i, 0);
         }
         
-        // →方向に舐める(自分より下の点の数を拾う)
+        // →方向に舐める(自分より下の点を調べる)
         for (int i = 0; i < n; i++) {
             int nowy = a[i][1];
             int cnt = seg.query(nowy, nowy+1);
@@ -48,7 +45,7 @@ public class Main {
             seg.update(i, 0);
         }
         
-        // ←方向に舐める(自分より上の点の数を拾う)
+        // ←方向に舐める(自分より上の点を調べる)
         for (int i = n-1; i >= 0; i--) {
             int nowy = a[i][1];
             int cnt = seg.query(nowy, nowy+1);
