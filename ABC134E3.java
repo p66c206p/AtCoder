@@ -22,7 +22,7 @@ public class Main {
         // -> 平面走査する。(y座標をn種類に抑えたいので座標圧縮が必要)
         
         // dp[i]: y座標の集合。y座標=iから「右下の点に行く」を何回繰り返せるか？のmax
-        SegmentTree<Integer> seg = new SegmentTree<>(n, Integer::max, Integer.MIN_VALUE);
+        SegmentTree<Integer> seg = new SegmentTree<>(n, Integer::max, 0);
         
         // 初期の配列を取得
         for (int i = 0; i < n; i++) {
