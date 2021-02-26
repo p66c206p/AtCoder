@@ -32,7 +32,8 @@ public class Main {
         // →方向に舐める(自分より下の点の数を拾う)
         for (int i = 0; i < n; i++) {
             int nowy = a[i][1];
-            seg.update(nowy, 1);
+            int cnt = seg.query(nowy, nowy+1);
+            seg.update(nowy, ++cnt);
             
             int res = seg.query(0, nowy);
             int ans_idx = a[i][2];
@@ -50,7 +51,8 @@ public class Main {
         // ←方向に舐める(自分より上の点の数を拾う)
         for (int i = n-1; i >= 0; i--) {
             int nowy = a[i][1];
-            seg.update(nowy, 1);
+            int cnt = seg.query(nowy, nowy+1);
+            seg.update(nowy, ++cnt);
             
             int res = seg.query(nowy+1, n);
             int ans_idx = a[i][2];
