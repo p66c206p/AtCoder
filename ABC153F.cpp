@@ -15,7 +15,7 @@ typedef pair<int, int> P;
 #define Arrays_toString(v) rep(o,(v).size()){cout<<v[o]<<", ";if(o==(v).size()-1){cout<<endl;}}
 
 int main(void){
-    int n, d, a;
+    int n, d, a; 
     cin >> n >> d >> a;
     vector<P> v(n);
     rep(i, n) cin >> v[i].first >> v[i].second;
