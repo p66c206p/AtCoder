@@ -25,9 +25,14 @@ public class Main {
         }
         
         // ans: 子を、自分と親と被らない色で塗るパターン数
+        
+        // how:
+        // 根から色を配っていく。
+        // 子の塗り方は k-2 C 子のサイズ。
+        
         // 頂点0だけ親がいないので別処理
         ans = k;
-        ans = ans * nPkMOD(k-1, to[0].size(), MOD);
+        ans *= nPkMOD(k-1, to[0].size(), MOD);
         ans %= MOD;
         // 親がいる点についてdfs
         for (Integer q : to[0]) {
@@ -38,7 +43,7 @@ public class Main {
     }
     
     public static void dfs(int p, int par) {
-        ans = ans * nPkMOD(k-2, to[p].size()-1, MOD);
+        ans *= nPkMOD(k-2, to[p].size()-1, MOD);
         ans %= MOD;
         for (Integer q : to[p]) {
             if (q == par) continue;
@@ -46,10 +51,11 @@ public class Main {
         }
     }
     
-    public static int nPkMOD(int n, int k, int mod) {
-        int res = 1;
+    public static long nPkMOD(int n, int k, int mod) {
+        long res = 1;
         for (int i = n; i > n-k; i--) {
-            res = res * i % mod;
+            res *= i;
+            res %= mod;
         }
         
         return res;
