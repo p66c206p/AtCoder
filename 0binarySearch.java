@@ -42,7 +42,7 @@ public static int upperBound(int[] array, int target) {
     long ng = 0;
     long ok = 1000000000000l;
     
-    while (ok - ng > 1) {
+    while (Math.abs(ok - ng) > 1) {
         long mid = (ok + ng) / 2;
         
         // okがどうかの判定
