@@ -39,7 +39,7 @@ int main(void){
     // = ある数tが、mod A で[La, Ra)、mod B で[Lb, Rb)の両方に属する。
     
     // (実は、{i (mod A), j (mod B)}となる数はA*B内に必ず存在する。(AとBは互いに素))
-    // -> i, jを全探索し、その中の最小値をansとする。 
+    // -> i, jを全探索し、その中の最小値をansとする。
     
     while (t-- > 0) {
         ll x, y, p, q;
@@ -62,7 +62,7 @@ int main(void){
                 ll t = tmp.first;
                 ll lcm = tmp.second;
                 
-                // lcm = 0ならば解なし
+                // lcm = 0の時解なし
                 if (lcm == 0) continue;
                 res = min(res, t);
             }
