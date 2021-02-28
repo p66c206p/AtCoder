@@ -45,8 +45,8 @@ int main(void){
         ll x, y, p, q;
         cin >> x >> y >> p >> q;
         
-        ll cycle_a = 2*(x+y);
-        ll cycle_b = p+q;
+        ll mod1 = 2*(x+y);
+        ll mod2 = p+q;
         
         ll res = INF;
         for (int i = x; i < x+y; i++) {
@@ -54,7 +54,7 @@ int main(void){
                 // crt({i,j}, {mod1,mod2}): 中国剰余定理
                 // 入力(mod1,mod2)は互いに素でなくても問題なし
                 // (互いに素でない場合は、解ありとは限らない)
-                pair<ll, ll> tmp = crt({i, j}, {cycle_a, cycle_b});
+                pair<ll, ll> tmp = crt({i, j}, {mod1, mod2});
                 
                 // first: mod1で割った余りがi、mod2で割った余りがjになる数
                 // (t ≡ i (mod m1), t ≡ j (mod m2)なるt)
@@ -62,7 +62,7 @@ int main(void){
                 ll t = tmp.first;
                 ll lcm = tmp.second;
                 
-                // lcm = 0の時解なし
+                // lcm = 0時解なし
                 if (lcm == 0) continue;
                 res = min(res, t);
             }
