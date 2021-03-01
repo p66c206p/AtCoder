@@ -73,10 +73,7 @@ int main(void){
     // 4. y=0 を並べる。
     
     n = v.size();
-    vector<P> sec1;
-    vector<P> sec2;
-    vector<P> sec3;
-    vector<P> sec4;
+    vector<P> sec1, sec2, sec3, sec4;
     rep(i, n) {
         int down = v[i].first;
         int up = v[i].second;
