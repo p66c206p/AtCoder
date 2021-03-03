@@ -52,15 +52,18 @@ int main(void){
         // ex. 8手先は現地点から4手先の4手先
         int to = next[i][j].first;
         if (to < 0 || m <= to) continue;
-        ll sum = next[i][j].second + next[i][to].second;
-        to = next[i][to].first;
+        ll sum = next[i][j].second;
+        P nj(to, sum);
+        
+        to = next[i][nj.first].first;
+        sum += next[i][nj.first].second;
         P nnj(to, sum);
+        
         next[i+1][j] = nnj;
     }
     // rep(i, 60) Arrays_toString(next[i]);
     
-    ll res = 0;
-    res += x;
+    ll res = x;
     now = x;
     rep(d, 60) {
         if (k % 2 == 1) {
