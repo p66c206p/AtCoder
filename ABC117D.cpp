@@ -15,6 +15,10 @@ typedef pair<int, int> P;
 int main(void){
     int m; cin >> m;
     ll x; cin >> x;
+    vector<ll> v(m);
+    rep(i, m) cin >> v[i];
+    
+    // s: to_binarystring(x)
     string s = "";
     while (x > 0) {
         string tmp = "";
@@ -25,9 +29,6 @@ int main(void){
         x /= 2;
     }
     int n = s.size();
-    
-    vector<ll> v(m);
-    rep(i, m) cin >> v[i];
     
     // ans:
     // 数がn個ある。任意のビットを選んで、全ての数に対して反転させられる。
