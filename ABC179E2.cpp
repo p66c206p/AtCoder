@@ -19,10 +19,10 @@ int main(void){
     k--;
     int x, m; cin >> x >> m;
     
-    vi v(m, 252521);
+    vi v(m, -1);
     ll now = x;
     while (true) {
-        if (v[now] != 252521) break;
+        if (v[now] != -1) break;
         
         int next = (int)((now*now) % m);
         v[now] = next;
