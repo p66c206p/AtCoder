@@ -24,6 +24,7 @@ int main(void){
     string s; cin >> s;
     int n = s.size();
     
+    // dp[i][j]: i桁目までみて、桁の和がj (mod x)になるパターン数
     dp[0][0][0] = 1;
     rep(i, n) {
         rep(j, x) {
