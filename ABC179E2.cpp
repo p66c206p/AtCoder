@@ -20,11 +20,11 @@ int main(void){
     int x, m; cin >> x >> m;
     
     vi v(m, -1);
-    ll now = x;
+    int now = x;
     while (true) {
         if (v[now] != -1) break;
         
-        int next = (int)((now*now) % m);
+        int next = (int)(((ll)now*now) % m);
         v[now] = next;
         now = next;
     }
