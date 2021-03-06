@@ -88,4 +88,5 @@ BIT: 一点更新、区間取得がO(logN)でできる
 値のペア(Ai, Bi): = 区間(L,R) = 二次元座標(x,y) = グラフ(頂点p,qを結ぶ辺)
 式変形
  - ΣΣ(Ai*Aj) ※i<j = ((ΣA)^2 - Σ(Ai^2)) / 2 (各要素同士の積の和 : Sum of product of pairs)
- - ΣΣ(Ai-Aj)^2 ※i<j = n*Σ(Ai^2) - (ΣA)^2 (各要素同士の差の2乗の和 : Squared Error)
+ - ΣΣ(Ai-Aj)^2 ※i<j = N*Σ(Ai^2) - (ΣA)^2 (各要素同士の差の2乗の和 : Squared Error)
+ - ΣΣ(Ai+Aj) ※i<j = (N-1)*(ΣA) (各要素同士の和の和)
