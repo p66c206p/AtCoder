@@ -18,8 +18,8 @@ public class Main {
         List<int[]>[] to = new List[n];
         List<Integer>[] rto = new List[n];
         for (int i = 0; i < n; i++) {
-            to[i] = new ArrayList<int[]>();
-            rto[i] = new ArrayList<Integer>();
+            to[i] = new ArrayList<>();
+            rto[i] = new ArrayList<>();
         }
         for (int i = 0; i < m; i++) {
             int p = sc.nextInt() - 1;
@@ -34,40 +34,40 @@ public class Main {
         // (特定の2点間の最短距離だけを求められる)
         // (startから各点までだとTLE)
         
-        // froms: startから行ける点か否か
-        boolean[] froms = new boolean[n];
-        Queue<Integer> que = new ArrayDeque<Integer>();
+        // fromStart: startから行ける点か否か
+        boolean[] fromStart = new boolean[n];
+        Queue<Integer> que = new ArrayDeque<>();
         que.add(start);
         while (!que.isEmpty()) {
             int p = que.poll();
             
             // 出現1回目のpだけに配らせる
-            if (froms[p]) continue;
-            froms[p] = true;
+            if (fromStart[p]) continue;
+            fromStart[p] = true;
             
-            // fromsであると知らなかった点だけキューに入れる
+            // fromStartであると知らなかった点だけキューに入れる
             for (int[] qData : to[p]) {
                 int q = qData[0];
-                if (!froms[q]) {
+                if (!fromStart[q]) {
                     que.add(q);
                 }
             }
         }
         
-        // tog: goalへ行ける点か否か
-        boolean[] tog = new boolean[n];
-        que = new ArrayDeque<Integer>();
+        // toGoal: goalへ行ける点か否か
+        boolean[] toGoal = new boolean[n];
+        que = new ArrayDeque<>();
         que.add(goal);
         while (!que.isEmpty()) {
             int p = que.poll();
             
             // 出現1回目のpだけに配らせる
-            if (tog[p]) continue;
-            tog[p] = true;
+            if (toGoal[p]) continue;
+            toGoal[p] = true;
             
-            // togであると知らなかった点だけキューに入れる
+            // toGoalであると知らなかった点だけキューに入れる
             for (Integer q : rto[p]) {
-                if (!tog[q]) {
+                if (!toGoal[q]) {
                     que.add(q);
                 }
             }
@@ -84,8 +84,8 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int p = 0; p < n; p++) {
                 // start-goal上にない点は無視
-                if (!froms[p]) continue;
-                if (!tog[p]) continue;
+                if (!fromStart[p]) continue;
+                if (!toGoal[p]) continue;
                 
                 for (int[] qData : to[p]) {
                     int q = qData[0];
@@ -105,7 +105,6 @@ public class Main {
                 }
             }
         }
-        
         // System.out.println(Arrays.toString(dist));
         
         if (negativeLoop) {
