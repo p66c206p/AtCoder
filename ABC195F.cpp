@@ -51,6 +51,7 @@ int main(void){
                 s |= (1<<j);
             }
         }
+        
         rep(j, (1<<m)) {
             if ((j&s) != 0) continue;
             dp[i+1][j | s] += dp[i][j];
