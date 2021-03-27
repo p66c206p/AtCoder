@@ -22,4 +22,4 @@
  - BIT
 青diff
  - 区間DP
- - 遅延セグメント木
+ - 遅延セグメント木、Segment Tree Beats
