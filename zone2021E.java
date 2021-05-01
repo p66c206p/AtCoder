@@ -4,7 +4,7 @@ public class Main {
     static int INF = 1001001009;
     
     public static void main(String[] args) throws Exception {
-        // Your code here!
+        // Your code here! 
         Scanner sc = new Scanner(System.in);
         int h = sc.nextInt();
         int w = sc.nextInt();
