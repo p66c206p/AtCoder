@@ -8,7 +8,7 @@ public class Main {
     static boolean solved = false;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         n = Math.min(n, 8);
