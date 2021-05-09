@@ -21,8 +21,7 @@
  - セグメント木
 水diff
  - 半分全列挙、平面走査、拡張ユークリッドの互除法
- - bitDP、桁DP、期待値DP、確率DP
+ - ナップザックDP、bitDP、桁DP、区間DP、期待値DP、確率DP
  - BIT
 青diff
- - 区間DP
  - 遅延セグメント木、Segment Tree Beats
