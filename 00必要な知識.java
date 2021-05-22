@@ -24,5 +24,5 @@
  - ナップザックDP、bitDP、桁DP、区間DP、期待値DP、確率DP
  - BIT
 青diff
- - LCA(最小共通祖先)
+ - LCA(最小共通祖先)、オイラーツアー
  - 遅延セグメント木、Segment Tree Beats
