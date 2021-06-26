@@ -20,15 +20,14 @@ public class Main {
         // res[i]: gcd=iであるパターン数
         long[] res = new long[k+1];
         for (int g = k; g >= 1; g--) {
-            int tmp1 = k/g;
-            long tmp2 = modpow(tmp1, n);
+            long tmp = modpow(k/g, n);
             
             for (int i = g*2; i <= k; i += g) {
-                tmp2 -= res[i];
-                if (tmp2 < 0) tmp2 += MOD;
+                tmp -= res[i];
+                if (tmp < 0) tmp += MOD;
             }
             
-            res[g] = tmp2;
+            res[g] = tmp;
         }
         
         long ans = 0;
