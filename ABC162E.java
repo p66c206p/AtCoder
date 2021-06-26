@@ -1,65 +1,65 @@
 import java.util.*;
 
 public class Main {
-    static int MOD = 1000000007;
+    static long MOD = 1000000007;
     
     public static void main(String[] args) throws Exception {
-        // Your code here! 
+        // Your code here!
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int k = sc.nextInt();
         
         // ans: 要素が全て1以上k以下の長さnの数列の、gcdの総和
-        long ans = 0;
         
-        // 全数列のgcdを実際に計算するのは間に合わない
-        // -> gcd=x(1<=x<=k)になる数列のパターン数を数える。
+        // how:
+        // gcdが1, 2, ... になるパターン数を数える。
+        // ex. gcdが3 = gcdが3の倍数 - gcdが6,9,12...
+        // -> 降順に調べていけばOK。
+        // -> gcdがxの倍数 = 全ての項がxの倍数。
         
-        // f(x) = gcd=xになる数列のパターン数
-        // -> ans = 1*f(1) + 2*f(2) + ... + k*f(k)
-        long[] f = new long[k+1];
-        
-        // f(x)を降順に数え上げる。
-        // ex. k=12
-        // f(12) <- [12,12,...,12]
-        // ...
-        // f(7) <- [7,7,...,7]
-            // -> f(12～7) = 1
-        // f(6) = f(6の倍数) - f(12)
-        // f(2) = f(2の倍数) - f(4) - f(6) - ... - f(12)
-            // -> f(x) = f(xの倍数) - f(2*x) - f(3*x) - ...
-        for (int i = k; i >= 1; i--) {
-            // ex. f(3の倍数) = 3の倍数の個数^配列の長さ
-            long baisuu = modpow((k / i), n);
+        // res[i]: gcd=iであるパターン数
+        long[] res = new long[k+1];
+        for (int g = k; g >= 1; g--) {
+            int tmp1 = k/g;
+            long tmp2 = modpow(tmp1, n);
             
-            long tmp = 0;
-            for (int j = 2 * i; j <= k; j += i) {
-                tmp += f[j];
-                tmp %= MOD;
+            for (int i = g*2; i <= k; i += g) {
+                tmp2 -= res[i];
+                if (tmp2 < 0) tmp2 += MOD;
             }
             
-            f[i] = baisuu - tmp;
-            if (f[i] < 0) {
-                f[i] += MOD;
-            }
+            res[g] = tmp2;
         }
         
+        long ans = 0;
         for (int i = 1; i <= k; i++) {
-            // System.out.println(f[i]);
-            ans += f[i] * i;
+            ans += res[i] * i;
             ans %= MOD;
         }
         System.out.println(ans);
     }
-    
-    public static long modpow(long a, long n) {
+
+    public static long modpow(long num, long n) {
+        // ex. 3^10
+        // 3^10 = 3^(0b1010)
+        // = 3^8が1個 * 3^4が0個 * 3^2が1個 * 3^1が0個
+        // (次の桁の値は(前の桁)^2になる)
+        
         long res = 1;
+        long digit = num;
+        
         while (n > 0) {
-            long tmp = n & 1;
-            if (tmp > 0) res = res * a % MOD;
-            a = a * a % MOD;
-            n >>= 1;
+            long lsb = n & 1;
+            if (lsb == 1) {
+                res *= digit;
+                res %= MOD;
+            }
+            
+            digit = digit * digit;
+            digit %= MOD;
+            n = n >> 1;
         }
+        
         return res;
     }
 }
