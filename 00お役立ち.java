@@ -105,6 +105,7 @@ https://bit.ly/37G6Nat
 Map<Integer, Integer> map = new HashMap<>();
 TreeMap<Integer, Integer> map = new TreeMap<>();
 Map<String, Integer> map = new LinkedHashMap<>();   // 順番を保持できる
+// x: Map<int[], Integer> // 配列をkeyにするのは無理(C++ならできる)
 map.put("北海道", 100);   // addではなくput
 map.put("北海道", 200);   // setの代わり、Mapはキー名の重複を許さない
 map.get("北海道");        // Mapはget(index)はないのでキーがIntegerでも良い
