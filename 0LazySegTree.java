@@ -28,7 +28,7 @@ public class Main {
                 int r = sc.nextInt();
                 int x = sc.nextInt();
                 seg.update(l, r, x);
-            } else {
+            } else { 
                 // 区間取得 [l, r)
                 int l = sc.nextInt()-1;
                 int r = sc.nextInt();
