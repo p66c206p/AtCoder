@@ -198,7 +198,7 @@ class LazySegTree<T, M> {
     // LazySegTree<F, Integer> seg = new LazySegTree<>(n, (v1, v2) -> new F(v1.val+v2.val, v1.size+v2.size), (m1, m2) -> m2, (dat, lazy) -> new F(lazy*dat.size, dat.size), new F(0,0), 0);
     // LazySegTree<F, Integer> seg = new LazySegTree<>(n, (v1, v2) -> new F(v1.val+v2.val, v1.size+v2.size), Integer::sum, (dat, lazy) -> new F(dat.val+lazy*dat.size, dat.size), new F(0,0), 0);
     
-    // Range Minimum Query (下は上と同意)
+    // Range Minimum Query (上は区間更新、下は区間加算)
     // LazySegTree<Integer, Integer> seg = new LazySegTree<>(n, Integer::min, (m1, m2) -> Math.min(m1, m2), (dat, lazy) -> Math.min(dat, lazy), Integer.MAX_VALUE, 0);
     // LazySegTree<Integer, Integer> seg = new LazySegTree<>(n, Integer::min, Integer::sum, Integer::sum, Integer.MAX_VALUE, 0);
     
