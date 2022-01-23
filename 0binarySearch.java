@@ -38,7 +38,7 @@ public static int upperBound(int[] array, int target) {
 
     // めぐる式二分探索
     // xxxxxooooooのxとoの境界(ok)を返す
-    // <- ooooooxxxxならok < ngにする
+    // <- ooooooxxxxならokを下限ngを上限に
     long ng = 0;
     long ok = 1000000000000l;
     
@@ -66,7 +66,7 @@ public static int upperBound(int[] array, int target) {
         }
     }
     
-    // 条件を満たす最小
+    // ngに最も近いokを出力
     System.out.println(ok);
 
 
